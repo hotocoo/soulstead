@@ -177,6 +177,9 @@ const BUILDINGS := {
 	"training_grounds": {"materials": {"timber": 5, "iron": 5}, "name": "Training Grounds", "description": "Villagers train to become better fighters."},
 	"library": {"materials": {"timber": 8, "relic": 1}, "name": "Library", "description": "Preserves knowledge of the old world."},
 	"wall": {"materials": {"timber": 15, "iron": 5}, "name": "Settlement Wall", "description": "Protects the settlement from raids."},
+	"watchtower": {"materials": {"timber": 10, "iron": 3}, "name": "Watchtower", "description": "Early warning of approaching threats."},
+	"barracks": {"materials": {"timber": 8, "iron": 8}, "name": "Barracks", "description": "Houses additional defenders."},
+	"market": {"materials": {"timber": 12, "iron": 2}, "name": "Market", "description": "Villagers can trade with travelers."},
 }
 
 ## Villager dialogue options
