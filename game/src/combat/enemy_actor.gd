@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Berserker enemies charge at distance
+	if posture == "darter" and _target != null and _target.global_position.distance_to(global_position) > 5.0 and randf() < 0.01:
+		var offset = _target.global_position - global_position
+		offset.y = 0.0
+		facing = offset.normalized()
+		velocity.x = facing.x * move_speed * 2.5
+		velocity.z = facing.z * move_speed * 2.5
 	# Healer enemies heal nearby allies when low
 	if posture == "dancer" and hp < max_hp * 0.5:
 		var nearby = get_tree().get_nodes_in_group("enemies")
