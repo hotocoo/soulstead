@@ -1,0 +1,192 @@
+class_name EnemyActor
+extends Combatant
+## Field enemy with a readable tell: the body flashes ember and rears back for
+## `tell` seconds before the active frames. Difficulty comes from reading the
+## wind-up, never from hidden information.
+
+signal slain(enemy: EnemyActor)
+signal spared(enemy: EnemyActor)
+
+const IDLE_WANDER_TIME := 2.0
+const LOSE_AGGRO_DISTANCE := 28.0
+
+var archetype: String = "husk"
+var damage: float = 10.0
+var tell_time: float = 0.4
+var reach: float = 2.0
+var aggro_range: float = 14.0
+var relics: int = 0
+var posture: String = "shambler"
+
+var _target: Combatant
+var _wander_timer: float = 0.0
+var _wander_direction := Vector3.ZERO
+var _was_provoked := false
+var _tell_phase := 0.0
+
+func _ready() -> void:
+	faction = "hostile"
+	super()
+	if visual == null:
+		configure(archetype)
+
+func configure(id: String, decay: int = 0) -> void:
+	archetype = id
+	var data: Dictionary = Codex.enemy(id)
+	# Region decay makes the same archetype meaner without new content.
+	var scale := 1.0 + 0.12 * decay
+	display_name = String(data["name"])
+	max_health = float(data["hp"]) * scale
+	max_poise = float(data["poise"])
+	move_speed = float(data["speed"])
+	damage = float(data["damage"]) * scale
+	tell_time = maxf(0.14, float(data["tell"]) - 0.03 * decay)
+	reach = float(data["reach"])
+	aggro_range = float(data["aggro"])
+	relics = int(data["relics"])
+	posture = String(data["posture"])
+	health = max_health
+	poise = max_poise
+	set_visual(_build_visual(data))
+
+func _build_visual(data: Dictionary) -> Node3D:
+	var color := Color(data["color"])
+	match archetype:
+		"husk":
+			return Look.authored("ash_husk", 0.34)
+		"stalker":
+			return Look.authored("cinder_stalker", 0.42)
+		"warden":
+			return Look.authored("gravewarden", 0.34)
+	match String(data["shape"]):
+		"beast":
+			var beast := Node3D.new()
+			var body := MeshInstance3D.new()
+			body.mesh = Look._organic_ellipsoid(Vector3(0.46, 0.30, 0.78), 32, 2.4)
+			body.material_override = Look.standard(color)
+			body.position = Vector3(0, 0.42, 0.18)
+			beast.add_child(body)
+			var head := MeshInstance3D.new()
+			head.mesh = Look._organic_ellipsoid(Vector3(0.28, 0.25, 0.32), 28, 2.8)
+			head.material_override = Look.standard(color.lightened(0.2))
+			head.position = Vector3(0, 0.48, 0.86)
+			beast.add_child(head)
+			for side: int in [-1, 1]:
+				var horn := MeshInstance3D.new()
+				horn.mesh = Look._segment_mesh(Vector3(float(side) * 0.16, 0.63, 0.83), Vector3(float(side) * 0.24, 0.88, 0.98), 0.07, 0.015, 20)
+				horn.material_override = Look.standard(color.darkened(0.28), 0.72)
+				beast.add_child(horn)
+			return beast
+		_:
+			var figure := Look.figure(color)
+			figure.scale = Vector3.ONE * (float(data["size"]) / 16.0)
+			return figure
+
+func _physics_process(delta: float) -> void:
+	if state == State.DEAD:
+		super(delta)
+		return
+	_tick_tell(delta)
+	_acquire_target()
+	match state:
+		State.IDLE:
+			_think(delta)
+		State.WINDUP:
+			_brake(delta)
+			if state_time_left() <= 0.0:
+				enter_state(State.ACTIVE, 0.12)
+				_strike()
+		State.ACTIVE:
+			if state_time_left() <= 0.0:
+				enter_state(State.RECOVER, 0.32)
+		State.RECOVER, State.STAGGER:
+			_brake(delta)
+			if state_time_left() <= 0.0:
+				enter_state(State.IDLE, 0.0)
+	super(delta)
+
+func _brake(delta: float) -> void:
+	velocity.x = move_toward(velocity.x, 0.0, 25.0 * delta)
+	velocity.z = move_toward(velocity.z, 0.0, 25.0 * delta)
+
+## The tell is the whole difficulty curve: the body rears and glows before it
+## commits, and the glow is visible from any camera angle.
+func _tick_tell(delta: float) -> void:
+	if visual == null:
+		return
+	if state != State.WINDUP:
+		_tell_phase = 0.0
+		visual.rotation.x = lerp(visual.rotation.x, 0.0, 10.0 * delta)
+		_set_tint(Color.WHITE)
+		return
+	_tell_phase += delta * 14.0
+	var pulse := 0.5 + 0.5 * sin(_tell_phase)
+	_set_tint(Color(1.0, 1.0, 1.0).lerp(Color(2.4, 1.1, 0.6), pulse))
+	visual.rotation.x = lerp(visual.rotation.x, -0.35, 12.0 * delta)
+
+func _acquire_target() -> void:
+	if _target != null and _target.is_alive():
+		if global_position.distance_to(_target.global_position) > LOSE_AGGRO_DISTANCE:
+			if not _was_provoked:
+				spared.emit(self)
+			_target = null
+		return
+	_target = null
+	for node: Node in get_tree().get_nodes_in_group("combatants"):
+		var other := node as Combatant
+		if other == null or other.faction == faction or not other.is_alive():
+			continue
+		if global_position.distance_to(other.global_position) <= aggro_range:
+			_target = other
+			return
+
+func _think(delta: float) -> void:
+	if _target == null:
+		_wander(delta)
+		return
+	var offset: Vector3 = _target.global_position - global_position
+	offset.y = 0.0
+	facing = offset.normalized()
+	var distance := offset.length()
+	if distance <= reach:
+		enter_state(State.WINDUP, tell_time)
+		return
+	var approach := offset.normalized()
+	if posture == "darter":
+		# Stalkers circle before committing, so the player can read a rhythm.
+		approach = approach.rotated(Vector3.UP, sin(Time.get_ticks_msec() * 0.002) * 0.8)
+	elif posture == "bulwark" and distance < reach * 1.8:
+		approach *= 0.4
+	velocity.x = move_toward(velocity.x, approach.x * move_speed, 20.0 * delta)
+	velocity.z = move_toward(velocity.z, approach.z * move_speed, 20.0 * delta)
+
+func _wander(delta: float) -> void:
+	_wander_timer -= delta
+	if _wander_timer <= 0.0:
+		_wander_timer = IDLE_WANDER_TIME + randf() * 2.0
+		_wander_direction = Vector3.FORWARD.rotated(Vector3.UP, randf() * TAU) \
+				if randf() < 0.65 else Vector3.ZERO
+	if _wander_direction != Vector3.ZERO:
+		facing = _wander_direction
+	velocity.x = move_toward(velocity.x, _wander_direction.x * move_speed * 0.35, 12.0 * delta)
+	velocity.z = move_toward(velocity.z, _wander_direction.z * move_speed * 0.35, 12.0 * delta)
+
+func _strike() -> void:
+	swing(reach + 0.5, 1.5, {
+		"damage": damage,
+		"poise_damage": damage * 1.4,
+		"knock_force": 5.0,
+	})
+
+func take_hit(info: Dictionary) -> bool:
+	_was_provoked = true
+	var attacker := info.get("attacker") as Combatant
+	if attacker != null:
+		_target = attacker
+	return super(info)
+
+func die() -> void:
+	if state == State.DEAD:
+		return
+	slain.emit(self)
+	super()

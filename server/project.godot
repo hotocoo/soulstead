@@ -1,0 +1,16 @@
+; Headless relay server for SOULSTEAD online play.
+; Run: godot --headless --path server
+
+config_version=5
+
+[application]
+
+config/name="SOULSTEAD Relay"
+config/description="Lobby relay: forwards Chronicle entries between players on different networks."
+run/main_scene="res://relay.tscn"
+config/features=PackedStringArray("4.4")
+run/disable_stdout=false
+
+[network]
+
+limits/debugger/max_chars_per_second=32768

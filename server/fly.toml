@@ -1,0 +1,28 @@
+# fly.io deployment for the SOULSTEAD relay.
+# fly launch --no-deploy   (once)
+# fly deploy
+app = "soulstead-relay"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  # WebSocket upgrades must pass through untouched.
+  [http_service.concurrency]
+    type = "connections"
+    hard_limit = 200
+    soft_limit = 150
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
