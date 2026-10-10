@@ -37,6 +37,13 @@ func _process(delta: float) -> void:
 
 func line() -> String:
 	var name := String(data.get("name", "Someone"))
+	# React to recent player actions
+	if WorldState.kill_count > 10:
+		return "%s: "You've been out there a while. The ash-things must be thick."" % name
+	if WorldState.materials["relic"] > 0:
+		return "%s: "Is that a relic you found? Those are rare these days."" % name
+	if WorldState.grief > 80:
+		return "%s: "I can see the weight on your shoulders. Rest a while."" % name
 	var job := String(data.get("job", "Field-hand"))
 	if WorldState.grief > 60:
 		return "%s, %s: \"Nobody is working. We keep listening for them.\"" % [name, job]
