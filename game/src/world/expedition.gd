@@ -17,11 +17,13 @@ var player: PlayerActor
 var _rng := RandomNumberGenerator.new()
 var _exit_position := Vector3.ZERO
 var kills := 0
+var _expedition_start_time := 0.0
 var _remote_bodies: Dictionary = {}
 
 func _ready() -> void:
 	Look.apply_fog(self)
 	_rng.seed = WorldState.world_seed + int(WorldState.world_day) * 7919
+	_expedition_start_time = Time.get_ticks_msec()
 	_spawn_companions()
 	var location := WorldState.current_location
 	var decay := WorldState.region_decay(location)
@@ -281,4 +283,21 @@ func _on_echo_reclaimed(data: Dictionary) -> void:
 	WorldState.reclaim_echo(String(data["id"]))
 
 func _on_player_died(position: Vector3, killed_by: String) -> void:
+	_show_death_recap(killed_by)
 	wielder_fell.emit(position, killed_by)
+
+func _show_death_recap(killed_by: String) -> void:
+	var elapsed := (Time.get_ticks_msec() - _expedition_start_time) / 1000.0
+	var minutes := int(elapsed / 60)
+	var seconds := int(elapsed % 60)
+	var recap := Label.new()
+	recap.text = "You fell to %s\n\nKills: %d\nTime: %d:%02d" % [killed_by, kills, minutes, seconds]
+	recap.position = Vector2(100, 200)
+	recap.add_theme_color_override("font_color", Color(0.8, 0.4, 0.4))
+	recap.add_theme_font_size_override("font_size", 16)
+	get_tree().root.add_child(recap)
+	# Fade out after 3 seconds
+	var tween := get_tree().create_tween()
+	tween.tween_interval(3.0)
+	tween.tween_property(recap, "modulate:a", 0.0, 1.0)
+	tween.tween_callback(recap.queue_free)
