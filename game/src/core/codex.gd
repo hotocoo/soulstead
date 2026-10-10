@@ -285,6 +285,14 @@ const RECIPES := {
 	"iron_shield": {"materials": {"iron": 3, "timber": 2}, "result": "iron_shield", "result_type": "shield"},
 	"leather_helm": {"materials": {"timber": 2}, "result": "leather_helm", "result_type": "armor"},
 	"leather_boots": {"materials": {"timber": 2}, "result": "leather_boots", "result_type": "armor"},
+	"whip": {"materials": {"timber": 3}, "result": "whip", "result_type": "weapon"},
+	"iron_fan": {"materials": {"iron": 1, "timber": 1}, "result": "iron_fan", "result_type": "weapon"},
+	"iron_trident": {"materials": {"iron": 3, "timber": 2}, "result": "iron_trident", "result_type": "weapon"},
+	"iron_mace": {"materials": {"iron": 4}, "result": "iron_mace", "result_type": "weapon"},
+	"oak_bow": {"materials": {"timber": 4}, "result": "oak_bow", "result_type": "weapon"},
+	"ember_staff": {"materials": {"timber": 3, "relic": 1}, "result": "ember_staff", "result_type": "weapon"},
+	"chain_flail": {"materials": {"iron": 3, "timber": 1}, "result": "chain_flail", "result_type": "weapon"},
+	"iron_halberd": {"materials": {"iron": 3, "timber": 3}, "result": "iron_halberd", "result_type": "weapon"},
 }
 
 func weapon(id: String) -> Dictionary:
