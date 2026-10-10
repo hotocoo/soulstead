@@ -31,6 +31,7 @@ static func build(data: Dictionary, parent: Node3D) -> MeshInstance3D:
 	_scatter_trees(data, parent)
 	_scatter_rocks(data, parent)
 	_scatter_grass(data, parent)
+	_scatter_fire(data, parent)
 	return mesh_instance
 
 static func _terrain_material() -> ShaderMaterial:
@@ -432,3 +433,49 @@ void fragment() {
 	var material := ShaderMaterial.new()
 	material.shader = shader
 	return material
+
+static func _scatter_fire(data: Dictionary, parent: Node3D) -> void:
+	var width: int = data["width"]
+	var height: int = data["height"]
+	var tiles: PackedByteArray = data["tiles"]
+	var rng := RandomNumberGenerator.new()
+	rng.seed = WorldState.world_seed + 12345
+	# Scatter fire patches on ash and grass tiles
+	for z in range(height):
+		for x in range(width):
+			var tile: int = tiles[z * width + x]
+			if tile == Terrain.ASH or tile == Terrain.GRASS:
+				if rng.randf() < 0.02:  # 2% chance per tile
+					var world_pos := Terrain.to_world(Vector2i(x, z), 0.4)
+					# Fire light
+					var light := OmniLight3D.new()
+					light.light_color = Color(1.0, 0.5, 0.2)
+					light.light_energy = 1.5
+					light.omni_range = 6.0
+					light.position = world_pos + Vector3(0, 1.0, 0)
+					parent.add_child(light)
+					# Fire particles
+					var particles := GPUParticles3D.new()
+					particles.position = world_pos + Vector3(0, 0.5, 0)
+					var material := ParticleProcessMaterial.new()
+					material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+					material.emission_sphere_radius = 0.3
+					material.initial_velocity_min = 0.5
+					material.initial_velocity_max = 1.5
+					material.gravity = Vector3(0, 0.5, 0)
+					material.lifetime = 1.5
+					material.lifetime_randomness = 0.5
+					material.amount = 15
+					particles.process_material = material
+					var mesh := SphereMesh.new()
+					mesh.radius = 0.05
+					mesh.height = 0.1
+					mesh.radial_segments = 4
+					mesh.rings = 2
+					particles.mesh = mesh
+					var mat := StandardMaterial3D.new()
+					mat.albedo_color = Color(1.0, 0.6, 0.2)
+					mat.emission_enabled = true
+					mat.emission = Color(1.0, 0.5, 0.1)
+					particles.material_override = mat
+					parent.add_child(particles)
