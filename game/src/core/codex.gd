@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"rapier": {
+		"name": "Rapier", "power": 8.0, "windup": 0.12, "active": 0.05, "recovery": 0.25,
+		"reach": 2.0, "arc": 0.3, "heavy_ratio": 1.2, "color": Color("#8a8a8a"), "shape": "rapier",
+	},
+	"warhammer": {
+		"name": "Warhammer", "power": 22.0, "windup": 0.5, "active": 0.15, "recovery": 0.8,
+		"reach": 1.8, "arc": 0.7, "heavy_ratio": 1.6, "color": Color("#5a5a5a"), "shape": "hammer",
+	},
 	"iron_crossbow": {
 		"name": "Iron Crossbow", "power": 14.0, "windup": 0.5, "active": 0.05, "recovery": 0.6,
 		"reach": 10.0, "arc": 0.2, "heavy_ratio": 1.5, "color": Color("#5a5a5a"), "shape": "crossbow",
