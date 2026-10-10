@@ -126,6 +126,16 @@ const ENEMIES := {
 		"tell": 1.0, "reach": 4.0, "color": Color("#5a5a5a"), "shape": "humanoid",
 		"size": 30, "aggro": 25.0, "posture": "bulwark", "relics": 3,
 	},
+	"ash_healer": {
+		"name": "Ash Healer", "hp": 40.0, "damage": 5.0, "poise": 15.0, "speed": 2.5,
+		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
+		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
+	},
+	"shield_bearer": {
+		"name": "Shield Bearer", "hp": 100.0, "damage": 12.0, "poise": 60.0, "speed": 1.8,
+		"tell": 0.6, "reach": 2.5, "color": Color("#6a7a6a"), "shape": "humanoid",
+		"size": 15, "aggro": 12.0, "posture": "bulwark", "relics": 1,
+	},
 	"swarm_spitter": {
 		"name": "Swarm Spitter", "hp": 25.0, "damage": 8.0, "poise": 5.0, "speed": 2.5,
 		"tell": 0.3, "reach": 5.0, "color": Color("#7a8a5a"), "shape": "beast",
