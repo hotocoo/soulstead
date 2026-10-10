@@ -11,6 +11,8 @@ var _line_panel: PanelContainer
 var _resources_label: Label
 var _minimap: Control
 var _craft_panel: PanelContainer
+var _build_panel: PanelContainer
+var _build_body: VBoxContainer
 var _craft_body: VBoxContainer
 var _line_label: Label
 var _panel: PanelContainer
@@ -22,6 +24,7 @@ func _ready() -> void:
 	_build_resources()
 	_build_minimap()
 	_build_craft_panel()
+	_build_building_panel()
 	_build_prompt()
 	_build_line_box()
 	WorldState.grief_changed.connect(func(_v: int) -> void: _refresh_status())
@@ -41,6 +44,41 @@ func _build_status() -> void:
 	add_child(holder)
 	_status = UiTheme.label("", 7)
 	holder.add_child(_status)
+
+func _build_building_panel() -> void:
+	_build_panel = UiTheme.make_panel(5)
+	_build_panel.position = Vector2(350, 120)
+	_build_panel.size = Vector2(200, 180)
+	add_child(_build_panel)
+	_build_body = VBoxContainer.new()
+	_build_body.size = Vector2(190, 170)
+	_build_panel.add_child(_build_body)
+	_build_body.add_child(UiTheme.label("Build", 10, UiTheme.ACCENT))
+	# Add build buttons for each building
+	for building_id in Codex.BUILDINGS:
+		var building := Codex.BUILDINGS[building_id]
+		var button := Button.new()
+		var materials_str = ""
+		for resource in building["materials"]:
+			if materials_str != "":
+				materials_str += ", "
+			materials_str += "%d %s" % [building["materials"][resource], resource]
+		button.text = "%s (%s)" % [building["name"], materials_str]
+		button.pressed.connect(func(): _build(building_id))
+		_build_body.add_child(button)
+
+func _build(building_id: String) -> void:
+	var building := Codex.BUILDINGS[building_id]
+	# Check if we have enough materials
+	for resource in building["materials"]:
+		if WorldState.inventory_count(resource) < building["materials"][resource]:
+			return
+	# Remove materials
+	for resource in building["materials"]:
+		WorldState.remove_from_inventory(resource, building["materials"][resource])
+	# Add building
+	WorldState.buildings[building_id] = 1
+	Chronicle.record("built", building_id)
 
 func _build_craft_panel() -> void:
 	_craft_panel = UiTheme.make_panel(5)
