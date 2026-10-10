@@ -18,7 +18,7 @@ const ECHO_TIER_DAYS := 2
 const ECHO_ROAM_TIER := 3
 const ECHO_RAID_TIER := 5
 const GRIEF_WORK_FLOOR := 0.35
-const LOCATIONS := ["wrenfield", "grey_ash", "stonewake", "kettlemere", "brackwood", "vane_road", "iron_hollow", "ashen_marsh", "cinder_peak", "frostvale", "sunnyridge", "deepwood", "silverlake"]
+const LOCATIONS := ["wrenfield", "grey_ash", "stonewake", "kettlemere", "brackwood", "vane_road", "iron_hollow", "ashen_marsh", "cinder_peak", "frostvale", "sunnyridge", "deepwood", "silverlake", "thornfield", "mistyvale"]
 const LOCATION_NAMES := {
 	"wrenfield": "Wrenfield",
 	"grey_ash": "The Grey Ash",
