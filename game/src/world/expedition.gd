@@ -214,6 +214,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and _near_exit():
 		if WorldState.story_director != null:
 			WorldState.story_director.notify_event("expedition_returned")
+		if get_tree().root.has_node("AudioManager"):
+			get_tree().root.get_node("AudioManager").play_return()
 		returned_home.emit()
 
 func _near_exit() -> bool:

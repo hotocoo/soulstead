@@ -52,6 +52,10 @@ func play_step() -> void:
 	_fill_stream(_dodge_stream, _step_buffer)
 	_play(_dodge_stream)
 
+func play_return() -> void:
+	_fill_stream(_death_stream, _return_buffer)
+	_play(_death_stream)
+
 func _play(stream: AudioStreamGenerator) -> void:
 	_master.stream = stream
 	_master.play()
@@ -100,3 +104,9 @@ func _step_buffer(t: float, time: float) -> int:
 	var env = exp(-t * 20.0)
 	var wave = sin(time * 200.0 * TAU)
 	return int(wave * env * 6000)
+
+func _return_buffer(t: float, time: float) -> int:
+	# Triumphant chord: three sines
+	var env = exp(-t * 2.0)
+	var wave = sin(time * 440.0 * TAU) * 0.4 + sin(time * 550.0 * TAU) * 0.3 + sin(time * 660.0 * TAU) * 0.2
+	return int(wave * env * 15000)
