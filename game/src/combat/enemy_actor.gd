@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Healer enemies heal nearby allies when low
+	if posture == "dancer" and hp < max_hp * 0.5:
+		var nearby = get_tree().get_nodes_in_group("enemies")
+		for enemy in nearby:
+			if enemy != self and enemy.hp < enemy.max_hp * 0.5 and global_position.distance_to(enemy.global_position) < 8.0:
+				enemy.hp = min(enemy.hp + 5.0, enemy.max_hp)
+				break
 	# Retreat when low on health
 	if hp < max_hp * 0.3 and randf() < 0.02:
 		var offset: Vector3 = global_position - _target.global_position
