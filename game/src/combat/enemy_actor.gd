@@ -28,6 +28,7 @@ var _hp_bar: Label3D
 
 func _ready() -> void:
 	faction = "hostile"
+	add_to_group("enemies")
 	super()
 	if visual == null:
 		configure(archetype)

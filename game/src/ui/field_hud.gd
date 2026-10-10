@@ -18,6 +18,8 @@ var _story_objective: Label
 var _exit_arrow: Label
 var _vignette: ColorRect
 var _kill_label: Label
+var _radar: Control
+
 
 func _ready() -> void:
 	layer = 10
@@ -50,6 +52,16 @@ func _ready() -> void:
 	_kill_label.offset_top = 30
 	_kill_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	add_child(_kill_label)
+	# Radar
+	_radar = Control.new()
+	_radar.anchor_left = 1.0
+	_radar.anchor_top = 1.0
+	_radar.offset_left = -120
+	_radar.offset_top = -120
+	_radar.offset_right = -8
+	_radar.offset_bottom = -8
+	_radar.draw.connect(_draw_radar)
+	add_child(_radar)
 
 	_health_bar = UiTheme.bar(UiTheme.HP_COLOR, 92)
 	frame.add_child(_health_bar)
@@ -93,7 +105,9 @@ func bind(actor: PlayerActor) -> void:
 	_on_composure(player.composure, player.max_composure)
 	_refresh_flasks()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	# Update radar
+	_process_radar(delta)
 	# Update kill counter and low health vignette
 	var expedition = get_tree().get_first_node_in_group("expedition")
 	if expedition != null:
@@ -133,6 +147,44 @@ func _process(_delta: float) -> void:
 			else:
 				arrow_text = "Home %dm ▶" % int(dist)
 			_exit_arrow.text = arrow_text
+
+func _draw_radar() -> void:
+	if player == null:
+		return
+	var size := _radar.size
+	var center := size * 0.5
+	var radius := size.x * 0.45
+	# Draw radar background
+	_radar.draw_circle(center, radius, Color(0.05, 0.05, 0.08, 0.7))
+	_radar.draw_arc(center, radius, 0, TAU, 64, Color(0.3, 0.3, 0.3, 0.5), 1.0)
+	# Draw crosshairs
+	_radar.draw_line(center + Vector2(-radius, 0), center + Vector2(radius, 0), Color(0.2, 0.2, 0.2, 0.5), 0.5)
+	_radar.draw_line(center + Vector2(0, -radius), center + Vector2(0, radius), Color(0.2, 0.2, 0.2, 0.5), 0.5)
+	# Find expedition for exit position
+	var expedition = get_tree().get_first_node_in_group("expedition")
+	if expedition == null:
+		return
+	var radar_range := 30.0
+	# Draw exit
+	if expedition.has("exit_position"):
+		var to_exit = expedition.exit_position - player.global_position
+		to_exit.y = 0.0
+		if to_exit.length() < radar_range:
+			var exit_pos = center + to_exit.normalized() * (to_exit.length() / radar_range) * radius
+			_radar.draw_circle(exit_pos, 4.0, Color(0.2, 0.8, 0.3, 0.9))
+	# Draw enemies
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		var to_enemy = enemy.global_position - player.global_position
+		to_enemy.y = 0.0
+		if to_enemy.length() < radar_range:
+			var enemy_pos = center + to_enemy.normalized() * (to_enemy.length() / radar_range) * radius
+			_radar.draw_circle(enemy_pos, 3.0, Color(0.8, 0.2, 0.2, 0.9))
+	# Draw player (center dot)
+	_radar.draw_circle(center, 3.0, Color(0.3, 0.6, 1.0, 1.0))
+
+func _process_radar(delta: float) -> void:
+	_radar.queue_redraw()
 
 func _on_health(current: float, maximum: float) -> void:
 	_health_bar.max_value = maximum
