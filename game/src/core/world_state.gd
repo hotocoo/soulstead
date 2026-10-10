@@ -63,6 +63,7 @@ var inventory: Array[Dictionary] = []
 var active_quest: Dictionary = {}
 var completed_quests: Array[String] = []
 var achievements: Array[String] = []
+var settlement_events: Array[Dictionary] = []
 var villagers: Array[Dictionary] = []
 var lineage: Array[Dictionary] = []
 var echoes: Array[Dictionary] = []
@@ -532,6 +533,17 @@ func inventory_count(item_id: String) -> int:
 		if item["id"] == item_id:
 			return item["count"]
 	return 0
+
+## Trigger a settlement event.
+func trigger_settlement_event(event_id: String, description: String) -> void:
+	settlement_events.append({"id": event_id, "description": description, "day": world_day})
+	Chronicle.record("settlement_event", description)
+
+## Get recent settlement events.
+func get_recent_settlement_events(count: int = 5) -> Array[Dictionary]:
+	if settlement_events.size() <= count:
+		return settlement_events
+	return settlement_events.slice(settlement_events.size() - count)
 
 ## Unlock an achievement.
 func unlock_achievement(achievement_id: String) -> bool:
