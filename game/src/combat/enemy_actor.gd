@@ -188,6 +188,14 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Retreat when low on health
+	if hp < max_hp * 0.3 and randf() < 0.02:
+		var offset: Vector3 = global_position - _target.global_position
+		offset.y = 0.0
+		facing = offset.normalized()
+		velocity.x = facing.x * move_speed * 0.8
+		velocity.z = facing.z * move_speed * 0.8
+		return
 	var offset: Vector3 = _target.global_position - global_position
 	offset.y = 0.0
 	facing = offset.normalized()
