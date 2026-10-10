@@ -18,7 +18,7 @@ const ECHO_TIER_DAYS := 2
 const ECHO_ROAM_TIER := 3
 const ECHO_RAID_TIER := 5
 const GRIEF_WORK_FLOOR := 0.35
-const LOCATIONS := ["wrenfield", "grey_ash", "stonewake", "kettlemere", "brackwood", "vane_road", "iron_hollow", "ashen_marsh", "cinder_peak", "frostvale", "sunnyridge", "deepwood", "silverlake", "thornfield", "mistyvale", "emerald_grove", "crystal_caves", "sunken_ruins", "windy_plateau", "golden_desert", "icy_peaks", "volcanic_isles", "mushroom_forest", "ancient_library", "fishing_village", "oasis", "canyon", "glacier", "rainforest", "lavender_fields", "bamboo_grove", "coral_reef", "obsidian_shore"]
+const LOCATIONS := ["wrenfield", "grey_ash", "stonewake", "kettlemere", "brackwood", "vane_road", "iron_hollow", "ashen_marsh", "cinder_peak", "frostvale", "sunnyridge", "deepwood", "silverlake", "thornfield", "mistyvale", "emerald_grove", "crystal_caves", "sunken_ruins", "windy_plateau", "golden_desert", "icy_peaks", "volcanic_isles", "mushroom_forest", "ancient_library", "fishing_village", "oasis", "canyon", "glacier", "rainforest", "lavender_fields", "bamboo_grove", "coral_reef", "obsidian_shore", "sapphire_lake", "emerald_valley"]
 const LOCATION_NAMES := {
 	"wrenfield": "Wrenfield",
 	"grey_ash": "The Grey Ash",
