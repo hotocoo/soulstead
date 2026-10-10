@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Coordinate with nearby enemies
+	if _target == null:
+		var nearby = get_tree().get_nodes_in_group("enemies")
+		for enemy in nearby:
+			if enemy != self and enemy._target != null and global_position.distance_to(enemy.global_position) < 8.0:
+				_target = enemy._target
+				break
 	# Retreat when low health
 	if hp < max_hp * 0.3 and _target != null and _target.global_position.distance_to(global_position) < 3.0:
 		var offset = global_position - _target.global_position
