@@ -206,6 +206,9 @@ const RECIPES := {
 	"long_spear": {"materials": {"timber": 2, "iron": 1}, "result": "long_spear", "result_type": "weapon"},
 	"great_axe": {"materials": {"iron": 4, "timber": 2}, "result": "great_axe", "result_type": "weapon"},
 	"healing_poultice": {"materials": {"timber": 1}, "result": "healing_poultice", "result_type": "consumable"},
+	"iron_shield": {"materials": {"iron": 3, "timber": 2}, "result": "iron_shield", "result_type": "shield"},
+	"leather_armor": {"materials": {"timber": 4}, "result": "leather_armor", "result_type": "armor"},
+	"iron_helm": {"materials": {"iron": 2, "timber": 1}, "result": "iron_helm", "result_type": "armor"},
 }
 
 func weapon(id: String) -> Dictionary:
