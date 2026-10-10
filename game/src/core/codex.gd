@@ -171,6 +171,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_slayer": {
+		"name": "Ash Slayer", "hp": 80.0, "damage": 18.0, "poise": 30.0, "speed": 3.0,
+		"tell": 0.4, "reach": 2.5, "color": Color("#7a6a7a"), "shape": "humanoid",
+		"size": 16, "aggro": 18.0, "posture": "darter", "relics": 2,
+	},
+	"ash_champion": {
+		"name": "Ash Champion", "hp": 200.0, "damage": 25.0, "poise": 100.0, "speed": 2.2,
+		"tell": 0.5, "reach": 3.0, "color": Color("#8a7a8a"), "shape": "humanoid",
+		"size": 20, "aggro": 20.0, "posture": "guardian", "relics": 3,
+	},
 	"ash_archer": {
 		"name": "Ash Archer", "hp": 30.0, "damage": 12.0, "poise": 8.0, "speed": 3.0,
 		"tell": 0.4, "reach": 10.0, "color": Color("#8a7a6a"), "shape": "humanoid",
