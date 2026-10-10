@@ -15,6 +15,7 @@ var _story_panel: PanelContainer
 var _story_title: Label
 var _story_body: Label
 var _story_objective: Label
+var _exit_arrow: Label
 
 func _ready() -> void:
 	layer = 10
@@ -22,6 +23,16 @@ func _ready() -> void:
 	frame.position = Vector2(8, 8)
 	frame.add_theme_constant_override("separation", 2)
 	add_child(frame)
+	# Exit compass: shows direction to the settlement exit
+	_exit_arrow = UiTheme.label("▼ Home", 9, UiTheme.ACCENT)
+	_exit_arrow.anchor_left = 0.5
+	_exit_arrow.anchor_right = 0.5
+	_exit_arrow.offset_left = -40
+	_exit_arrow.offset_right = 40
+	_exit_arrow.offset_top = 8
+	_exit_arrow.offset_bottom = 24
+	_exit_arrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	add_child(_exit_arrow)
 
 	_health_bar = UiTheme.bar(UiTheme.HP_COLOR, 92)
 	frame.add_child(_health_bar)
@@ -73,6 +84,25 @@ func _process(_delta: float) -> void:
 		]
 	_clock_label.text += "\n%s · %s" % [WorldState.location_name(WorldState.current_location),
 			WorldState.decay_name(WorldState.region_decay(WorldState.current_location))]
+	# Update exit compass
+	if player != null and player.camera != null:
+		var expedition = get_tree().get_first_node_in_group("expedition")
+		if expedition != null and expedition.has("exit_position"):
+			var to_exit = expedition.exit_position - player.global_position
+			to_exit.y = 0.0
+			var cam_forward = -player.camera.global_basis.z
+			cam_forward.y = 0.0
+			cam_forward = cam_forward.normalized()
+			var angle = to_exit.normalized().signed_angle_to(cam_forward, Vector3.UP)
+			var dist = to_exit.length()
+			var arrow_text = ""
+			if absf(angle) < deg_to_rad(30.0):
+				arrow_text = "▼ Home %dm" % int(dist)
+			elif angle > 0:
+				arrow_text = "◀ Home %dm" % int(dist)
+			else:
+				arrow_text = "Home %dm ▶" % int(dist)
+			_exit_arrow.text = arrow_text
 
 func _on_health(current: float, maximum: float) -> void:
 	_health_bar.max_value = maximum

@@ -72,6 +72,9 @@ func _spawn_enemies(location: String = "wrenfield", decay: int = 0) -> void:
 		"brackwood": pool = ["husk", "stalker", "stalker"]
 		"vane_road": pool = ["warden", "husk", "warden"]
 		_: pool = ["husk", "husk", "stalker", "warden"] if decay >= 2 else ["husk", "husk", "husk", "stalker"]
+	# High-decay regions spawn elite Keepers
+	if decay >= 3:
+		pool.push_back("keeper")
 	var placed := 0
 	var attempts := 0
 	while placed < count and attempts < 4000:
