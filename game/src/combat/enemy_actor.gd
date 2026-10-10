@@ -289,6 +289,12 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+		# Call for help: alert nearby enemies
+		if randf() < 0.1:
+			var nearby = get_tree().get_nodes_in_group("enemies")
+			for enemy in nearby:
+				if enemy != self and global_position.distance_to(enemy.global_position) < 12.0:
+					enemy._target = attacker
 	# Fast enemies dodge occasionally
 	if posture == "darter" and randf() < 0.15:
 		# Dodge: move sideways
