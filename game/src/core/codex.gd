@@ -38,6 +38,14 @@ const WEAPONS := {
 		"name": "Oak Bow", "power": 10.0, "windup": 0.3, "active": 0.1, "recovery": 0.4,
 		"reach": 8.0, "arc": 0.3, "heavy_ratio": 1.3, "color": Color("#8a6a4a"), "shape": "bow",
 	},
+	"whip": {
+		"name": "Whip", "power": 6.0, "windup": 0.15, "active": 0.05, "recovery": 0.3,
+		"reach": 3.0, "arc": 0.4, "heavy_ratio": 1.2, "color": Color("#6a4a3a"), "shape": "whip",
+	},
+	"iron_fan": {
+		"name": "Iron Fan", "power": 5.0, "windup": 0.1, "active": 0.05, "recovery": 0.25,
+		"reach": 1.5, "arc": 0.6, "heavy_ratio": 1.1, "color": Color("#8a8a8a"), "shape": "fan",
+	},
 	"chain_flail": {
 		"name": "Chain Flail", "power": 16.0, "windup": 0.35, "active": 0.15, "recovery": 0.6,
 		"reach": 2.5, "arc": 1.5, "heavy_ratio": 1.5, "color": Color("#7a7a7a"), "shape": "flail",
