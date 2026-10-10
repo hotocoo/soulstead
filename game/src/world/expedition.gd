@@ -88,7 +88,13 @@ func _spawn_enemies(location: String = "wrenfield", decay: int = 0) -> void:
 		var enemy := EnemyActor.new()
 		enemy.position = point
 		add_child(enemy)
+		# Enemies get stronger as the day progresses (max at dusk)
+		var hour := fmod(WorldState.world_day, 1.0) * 24.0
+		var time_scale := 1.0 + 0.3 * sin(hour / 24.0 * PI)  # Peaks at noon
 		enemy.configure(String(pool[_rng.randi() % pool.size()]), decay)
+		enemy.damage *= time_scale
+		enemy.max_health *= time_scale
+		enemy.health = enemy.max_health
 		if String(enemy.archetype) == "warden" and WorldState.story_director != null:
 			WorldState.story_director.notify_event("gravewarden_seen")
 		enemy.slain.connect(_on_enemy_slain)
