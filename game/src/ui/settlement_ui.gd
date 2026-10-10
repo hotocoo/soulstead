@@ -10,6 +10,8 @@ var _status: Label
 var _line_panel: PanelContainer
 var _resources_label: Label
 var _minimap: Control
+var _craft_panel: PanelContainer
+var _craft_body: VBoxContainer
 var _line_label: Label
 var _panel: PanelContainer
 var _panel_body: VBoxContainer
@@ -19,6 +21,7 @@ func _ready() -> void:
 	_build_status()
 	_build_resources()
 	_build_minimap()
+	_build_craft_panel()
 	_build_prompt()
 	_build_line_box()
 	WorldState.grief_changed.connect(func(_v: int) -> void: _refresh_status())
@@ -38,6 +41,41 @@ func _build_status() -> void:
 	add_child(holder)
 	_status = UiTheme.label("", 7)
 	holder.add_child(_status)
+
+func _build_craft_panel() -> void:
+	_craft_panel = UiTheme.make_panel(5)
+	_craft_panel.position = Vector2(140, 120)
+	_craft_panel.size = Vector2(200, 180)
+	add_child(_craft_panel)
+	_craft_body = VBoxContainer.new()
+	_craft_body.size = Vector2(190, 170)
+	_craft_panel.add_child(_craft_body)
+	_craft_body.add_child(UiTheme.label("Crafting", 10, UiTheme.ACCENT))
+	# Add craft buttons for each recipe
+	for recipe_id in Codex.RECIPES:
+		var recipe := Codex.RECIPES[recipe_id]
+		var button := Button.new()
+		var materials_str = ""
+		for resource in recipe["materials"]:
+			if materials_str != "":
+				materials_str += ", "
+			materials_str += "%d %s" % [recipe["materials"][resource], resource]
+		button.text = "%s (%s)" % [recipe_id, materials_str]
+		button.pressed.connect(func(): _craft(recipe_id))
+		_craft_body.add_child(button)
+
+func _craft(recipe_id: String) -> void:
+	var recipe := Codex.RECIPES[recipe_id]
+	# Check if we have enough materials
+	for resource in recipe["materials"]:
+		if WorldState.inventory_count(resource) < recipe["materials"][resource]:
+			return
+	# Remove materials
+	for resource in recipe["materials"]:
+		WorldState.remove_from_inventory(resource, recipe["materials"][resource])
+	# Add crafted item
+	WorldState.add_to_inventory(recipe["result"], 1)
+	Chronicle.record("crafted", recipe_id)
 
 func _build_minimap() -> void:
 	_minimap = Control.new()
