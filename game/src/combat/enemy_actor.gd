@@ -17,6 +17,7 @@ var reach: float = 2.0
 var aggro_range: float = 14.0
 var relics: int = 0
 var posture: String = "shambler"
+var drop_chance: float = 0.25
 
 var _target: Combatant
 var _wander_timer: float = 0.0
@@ -216,3 +217,8 @@ func die() -> void:
 	super()
 	if get_tree().root.has_node("AudioManager"):
 		get_tree().root.get_node("AudioManager").play_death()
+	# Drop loot
+	if randf() < drop_chance:
+		var loot := 1 + int(randf() * 3)
+		WorldState.materials["timber"] = int(WorldState.materials.get("timber", 0)) + loot
+		Chronicle.record("enemy_loot", {"enemy": display_name, "loot": "timber", "amount": loot})

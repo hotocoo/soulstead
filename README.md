@@ -24,6 +24,16 @@ terrain, characters, props and lighting are all generated at load.
 5. **Multiplayer shares consequence, not loot.** Friends anywhere on the internet join with a
    lobby code. Their choices bend your ending, and yours bend theirs.
 
+## Recent Features
+
+- **Combat improvements:** sprint (Shift), guard (I), auto-aim assist, attack chaining
+- **Visual feedback:** floating damage numbers, ember burst particles on hit, enemy health bars
+- **Critical hits:** 2x damage for backstabs and hitting poise-broken enemies
+- **New weapons:** Oathbreaker (greatsword), Twin Cinders (daggers)
+- **New enemy:** The Keeper (elite bulwark, spawns in high-decay regions)
+- **Procedural audio:** combat sound effects generated in real-time
+- **QoL:** quick-save (F5), quick-load (F9), exit compass
+
 ## Layout
 
 ```
