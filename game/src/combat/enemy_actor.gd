@@ -198,11 +198,44 @@ func _wander(delta: float) -> void:
 	velocity.z = move_toward(velocity.z, _wander_direction.z * move_speed * 0.35, 12.0 * delta)
 
 func _strike() -> void:
+	# Ranged enemies fire projectiles
+	if posture == "ranged":
+		_fire_projectile()
+		return
+	# Melee enemies swing
 	swing(reach + 0.5, 1.5, {
 		"damage": damage,
 		"poise_damage": damage * 1.4,
 		"knock_force": 5.0,
 	})
+
+func _fire_projectile() -> void:
+	# Create a simple projectile
+	var projectile := Area3D.new()
+	projectile.position = position + Vector3(0, 1.0, 0)
+	var shape := CollisionShape3D.new()
+	var sphere := SphereShape3D.new()
+	sphere.radius = 0.2
+	shape.shape = sphere
+	projectile.add_child(shape)
+	# Visual
+	var mesh := MeshInstance3D.new()
+	var ball := SphereMesh.new()
+	ball.radius = 0.15
+	ball.height = 0.3
+	mesh.mesh = ball
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(1.0, 0.6, 0.2)
+	mat.emission_enabled = true
+	mat.emission = Color(1.0, 0.6, 0.2)
+	mesh.material_override = mat
+	projectile.add_child(mesh)
+	# Move projectile toward target
+	var direction := Vector3(0)
+	if _target != null:
+		direction = (_target.position - position).normalized()
+	projectile.linear_velocity = direction * 10.0
+	get_tree().root.add_child(projectile)
 
 func take_hit(info: Dictionary) -> bool:
 	_was_provoked = true
