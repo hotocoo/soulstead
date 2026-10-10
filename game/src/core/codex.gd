@@ -147,6 +147,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"iron_knight": {
+		"name": "Iron Knight", "hp": 150.0, "damage": 20.0, "poise": 80.0, "speed": 2.0,
+		"tell": 0.5, "reach": 3.0, "color": Color("#6a6a7a"), "shape": "humanoid",
+		"size": 18, "aggro": 15.0, "posture": "guardian", "relics": 2,
+	},
+	"ash_mage": {
+		"name": "Ash Mage", "hp": 45.0, "damage": 15.0, "poise": 10.0, "speed": 2.5,
+		"tell": 0.6, "reach": 8.0, "color": Color("#7a6a8a"), "shape": "humanoid",
+		"size": 14, "aggro": 20.0, "posture": "ranged", "relics": 2,
+	},
 	"ash_ghost": {
 		"name": "Ash Ghost", "hp": 35.0, "damage": 10.0, "poise": 8.0, "speed": 4.0,
 		"tell": 0.25, "reach": 2.0, "color": Color("#9a9aaa"), "shape": "humanoid",
