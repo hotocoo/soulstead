@@ -8,6 +8,7 @@ var settlement: Settlement
 var _prompt: Label
 var _status: Label
 var _line_panel: PanelContainer
+var _resources_label: Label
 var _line_label: Label
 var _panel: PanelContainer
 var _panel_body: VBoxContainer
@@ -15,9 +16,11 @@ var _panel_body: VBoxContainer
 func _ready() -> void:
 	layer = 10
 	_build_status()
+	_build_resources()
 	_build_prompt()
 	_build_line_box()
 	WorldState.grief_changed.connect(func(_v: int) -> void: _refresh_status())
+	WorldState.grief_changed.connect(func(_v: int) -> void: _refresh_resources())
 	Chronicle.recorded.connect(func(_e: Dictionary) -> void: _refresh_status())
 	if WorldState.story_director != null:
 		WorldState.story_director.beat_started.connect(_show_story_beat)
@@ -33,6 +36,24 @@ func _build_status() -> void:
 	add_child(holder)
 	_status = UiTheme.label("", 7)
 	holder.add_child(_status)
+
+func _build_resources() -> void:
+	_resources_label = UiTheme.label("", 7, UiTheme.INK_DIM)
+	_resources_label.anchor_left = 0.0
+	_resources_label.anchor_right = 0.0
+	_resources_label.offset_left = 8
+	_resources_label.offset_right = 8
+	_resources_label.offset_top = 60
+	_resources_label.offset_bottom = 80
+	add_child(_resources_label)
+	_refresh_resources()
+
+func _refresh_resources() -> void:
+	_resources_label.text = "Timber: %d  Iron: %d  Relics: %d" % [
+		WorldState.materials.get("timber", 0),
+		WorldState.materials.get("iron", 0),
+		WorldState.materials.get("relic", 0),
+	]
 
 func _build_prompt() -> void:
 	_prompt = UiTheme.label("", 8, UiTheme.ACCENT)
