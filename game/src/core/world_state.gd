@@ -64,6 +64,7 @@ var active_quest: Dictionary = {}
 var completed_quests: Array[String] = []
 var achievements: Array[String] = []
 var settlement_events: Array[Dictionary] = []
+var tutorial_completed: bool = false
 var villagers: Array[Dictionary] = []
 var lineage: Array[Dictionary] = []
 var echoes: Array[Dictionary] = []
@@ -533,6 +534,16 @@ func inventory_count(item_id: String) -> int:
 		if item["id"] == item_id:
 			return item["count"]
 	return 0
+
+## Mark tutorial as completed.
+func complete_tutorial() -> void:
+	if not tutorial_completed:
+		tutorial_completed = true
+		Chronicle.record("tutorial_completed", "Player completed tutorial")
+
+## Check if tutorial is completed.
+func is_tutorial_completed() -> bool:
+	return tutorial_completed
 
 ## Trigger a settlement event.
 func trigger_settlement_event(event_id: String, description: String) -> void:
