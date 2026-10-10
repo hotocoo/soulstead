@@ -9,6 +9,8 @@ signal flask_used(left: int)
 signal died_in_field(position: Vector3, killed_by: String)
 
 const WALK_SPEED := 4.4
+const SPRINT_SPEED := 7.2
+const SPRINT_COST_PER_SEC := 28.0
 const DODGE_SPEED := 11.0
 const DODGE_TIME := 0.42
 const PARRY_TIME := 0.36
@@ -17,6 +19,7 @@ const COMPOSURE_REGEN := 34.0
 const DODGE_COST := 22.0
 const FLASK_HEAL := 45.0
 const FLASK_TIME := 0.9
+const GUARD_COST_PER_SEC := 12.0
 ## True third-person perspective. The camera is physically behind the
 ## character, orbits freely around them, and movement is camera-relative.
 const CAMERA_DISTANCE := 4.8
@@ -41,6 +44,7 @@ var camera: Camera3D
 var _regen_delay: float = 0.0
 var _attack: Dictionary = {}
 var _attack_kind: String = "light"
+var _attack_hit: bool = false
 var _dodge_direction := Vector3.FORWARD
 var _blade: Node3D
 var _camera_yaw := 0.0
@@ -123,13 +127,47 @@ func _process(delta: float) -> void:
 		var view_forward := -pivot.global_basis.z
 		view_forward.y = 0.0
 		view_forward = view_forward.normalized()
-		camera.look_at(global_position + view_forward * 1.7 + Vector3(0, CAMERA_TARGET_HEIGHT, 0), Vector3.UP)
+		var look_target := global_position + view_forward * 1.7 + Vector3(0, CAMERA_TARGET_HEIGHT, 0)
+		# Auto-aim assist: subtly track nearest enemy in front
+		var enemy := _nearest_enemy_in_arc(4.5, deg_to_rad(40.0))
+		if enemy != null:
+			var to_enemy := enemy.global_position - global_position
+			to_enemy.y = 0.0
+			var blend := 0.25
+			look_target = global_position + (view_forward * (1.0 - blend) + to_enemy.normalized() * blend) * 1.7 + Vector3(0, CAMERA_TARGET_HEIGHT, 0)
+		camera.look_at(look_target, Vector3.UP)
+
+## Returns the nearest enemy within range and arc in front of the player.
+func _nearest_enemy_in_arc(range: float, arc: float) -> Combatant:
+	var best: Combatant = null
+	var best_dist := range
+	for node: Node in get_tree().get_nodes_in_group("combatants"):
+		var other := node as Combatant
+		if other == null or other == self or not other.is_alive() or other.faction == faction:
+			continue
+		var offset: Vector3 = other.global_position - global_position
+		offset.y = 0.0
+		if offset.length() > best_dist:
+			continue
+		if absf(offset.normalized().signed_angle_to(facing, Vector3.UP)) > arc * 0.5:
+			continue
+		best = other
+		best_dist = offset.length()
+	return best
 
 func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		super(delta)
 		return
 	_tick_composure(delta)
+	# Guard: hold I to block, costs composure over time
+	if state == State.IDLE and Input.is_action_pressed("guard") and input_enabled:
+		if composure > 0.0:
+			composure = maxf(0.0, composure - GUARD_COST_PER_SEC * delta)
+			composure_changed.emit(composure, max_composure)
+			enter_state(State.GUARD, 0.0)
+	elif state == State.GUARD and (not Input.is_action_pressed("guard") or composure <= 0.0):
+		_finish_action()
 	match state:
 		State.IDLE:
 			_handle_free_movement(delta)
@@ -145,6 +183,9 @@ func _physics_process(delta: float) -> void:
 			velocity.z = _dodge_direction.z * speed
 			if state_time_left() <= 0.0:
 				_finish_action()
+		State.GUARD:
+			velocity.x = move_toward(velocity.x, 0.0, 30.0 * delta)
+			velocity.z = move_toward(velocity.z, 0.0, 30.0 * delta)
 		State.PARRY, State.STAGGER:
 			velocity.x = move_toward(velocity.x, 0.0, 30.0 * delta)
 			velocity.z = move_toward(velocity.z, 0.0, 30.0 * delta)
@@ -182,8 +223,14 @@ func _handle_free_movement(delta: float) -> void:
 	var direction := (right * input.x + forward * input.y).normalized() if input.length() > 0.1 else Vector3.ZERO
 	if direction.length() > 0.1:
 		facing = direction.normalized()
-	velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED, 40.0 * delta)
-	velocity.z = move_toward(velocity.z, direction.z * WALK_SPEED, 40.0 * delta)
+	# Sprint: hold shift to move faster, costs composure
+	var speed := WALK_SPEED
+	if Input.is_action_pressed("sprint") and composure > 0.0 and direction.length() > 0.1:
+		speed = SPRINT_SPEED
+		composure = maxf(0.0, composure - SPRINT_COST_PER_SEC * delta)
+		composure_changed.emit(composure, max_composure)
+	velocity.x = move_toward(velocity.x, direction.x * speed, 40.0 * delta)
+	velocity.z = move_toward(velocity.z, direction.z * speed, 40.0 * delta)
 	if not input_enabled:
 		return
 	if Input.is_action_just_pressed("dodge"):
@@ -217,6 +264,7 @@ func _try_attack(kind: String) -> void:
 		return
 	_attack = data
 	_attack_kind = kind
+	_attack_hit = false
 	_spend_composure(float(data["cost"]))
 	enter_state(State.WINDUP, float(data["startup"]))
 
@@ -248,7 +296,11 @@ func _advance_attack(delta: float, next: State) -> void:
 			enter_state(State.ACTIVE, float(_attack["active"]))
 			_resolve_swing()
 		State.RECOVER:
-			enter_state(State.RECOVER, float(_attack["recovery"]))
+			var recovery := float(_attack["recovery"])
+			# Attack chaining: light attacks that hit have 40% reduced recovery
+			if _attack_kind == "light" and _attack_hit:
+				recovery *= 0.6
+			enter_state(State.RECOVER, recovery)
 		_:
 			_finish_action()
 
@@ -268,6 +320,7 @@ func _resolve_swing() -> void:
 		"knock_force": 6.0 if _attack_kind == "heavy" else 3.0,
 	})
 	if not hits.is_empty():
+		_attack_hit = true
 		_regen_delay = COMPOSURE_DELAY * 0.5
 
 ## The blade reads the attack state: cocked back on windup, swept on active.
@@ -282,7 +335,16 @@ func _animate_blade(delta: float) -> void:
 			target = 1.3
 		State.RECOVER:
 			target = 0.6
+		State.GUARD:
+			target = 0.0
+		State.PARRY:
+			target = 0.8
 	_blade.rotation.y = lerp_angle(_blade.rotation.y, target, 18.0 * delta)
+	# Guard: raise blade higher
+	var target_x := 0.0
+	if state == State.GUARD:
+		target_x = -0.3
+	_blade.rotation.x = lerp(_blade.rotation.x, target_x, 12.0 * delta)
 
 func _finish_action() -> void:
 	enter_state(State.IDLE, 0.0)

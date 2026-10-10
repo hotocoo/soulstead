@@ -10,7 +10,7 @@ signal died(who: Combatant)
 signal health_changed(current: float, maximum: float)
 signal poise_broken()
 
-enum State { IDLE, WINDUP, ACTIVE, RECOVER, DODGE, PARRY, STAGGER, DEAD }
+enum State { IDLE, WINDUP, ACTIVE, RECOVER, DODGE, PARRY, GUARD, STAGGER, DEAD }
 
 const GRAVITY := 22.0
 const POISE_REGEN := 18.0
@@ -68,7 +68,7 @@ func is_alive() -> bool:
 	return state != State.DEAD
 
 func is_busy() -> bool:
-	return state in [State.WINDUP, State.ACTIVE, State.RECOVER, State.DODGE, State.STAGGER]
+	return state in [State.WINDUP, State.ACTIVE, State.RECOVER, State.DODGE, State.PARRY, State.GUARD, State.STAGGER]
 
 ## Invulnerability sits at the front of the roll: commit early, recover late.
 func is_invulnerable() -> bool:
@@ -115,8 +115,14 @@ func take_hit(info: Dictionary) -> bool:
 	if state == State.PARRY and _within_parry_window():
 		on_parry_success(info)
 		return false
-	health = maxf(0.0, health - float(info.get("damage", 0.0)))
-	poise -= float(info.get("poise_damage", 0.0))
+	var damage := float(info.get("damage", 0.0))
+	var poise_damage := float(info.get("poise_damage", 0.0))
+	# Guarding reduces damage and poise damage
+	if state == State.GUARD:
+		damage *= guard_damage_reduction()
+		poise_damage *= guard_poise_reduction()
+	health = maxf(0.0, health - damage)
+	poise -= poise_damage
 	health_changed.emit(health, max_health)
 	_flash()
 	var knock: Vector3 = info.get("knockback", Vector3.ZERO)
@@ -130,6 +136,12 @@ func take_hit(info: Dictionary) -> bool:
 		poise_broken.emit()
 		enter_state(State.STAGGER, STAGGER_TIME)
 	return true
+
+func guard_damage_reduction() -> float:
+	return 0.4
+
+func guard_poise_reduction() -> float:
+	return 0.3
 
 func _within_parry_window() -> bool:
 	return _state_timer > parry_recovery()
