@@ -223,6 +223,9 @@ const BUILDINGS := {
 	"market": {"materials": {"timber": 12, "iron": 2}, "name": "Market", "description": "Villagers can trade with travelers."},
 	"herbalist": {"materials": {"timber": 6, "relic": 1}, "name": "Herbalist", "description": "Crafts healing potions."},
 	"stables": {"materials": {"timber": 10, "iron": 2}, "name": "Stables", "description": "Houses pack animals for expeditions."},
+	"granary": {"materials": {"timber": 8}, "name": "Granary", "description": "Stores food for the settlement."},
+	"well": {"materials": {"iron": 3, "timber": 4}, "name": "Well", "description": "Provides clean water."},
+	"forge": {"materials": {"iron": 5, "timber": 5}, "name": "Forge", "description": "Enhances weapon crafting."},
 }
 
 ## Villager dialogue options
