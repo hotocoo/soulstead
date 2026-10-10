@@ -208,7 +208,11 @@ func _think(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, retreat.z * move_speed * 0.6, 20.0 * delta)
 		return
 	if distance <= reach:
-		enter_state(State.WINDUP, tell_time)
+		# Special attack: some enemies use heavy attacks occasionally
+		if randf() < 0.15 and posture == "guardian":
+			enter_state(State.WINDUP, tell_time * 1.5)
+		else:
+			enter_state(State.WINDUP, tell_time)
 		return
 	var approach := offset.normalized()
 	# Flanking: some enemies circle to the side
