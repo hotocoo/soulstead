@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Ranged enemies throw projectiles
+	if posture == "ranged" and _target != null and _target.global_position.distance_to(global_position) > reach * 0.7 and randf() < 0.02:
+		var offset = _target.global_position - global_position
+		offset.y = 0.0
+		facing = offset.normalized()
+		# Throw a rock (represented as a fast melee attack)
+		enter_state(State.WINDUP, tell_time * 0.5)
 	# Berserker enemies charge at distance
 	if posture == "darter" and _target != null and _target.global_position.distance_to(global_position) > 5.0 and randf() < 0.01:
 		var offset = _target.global_position - global_position
