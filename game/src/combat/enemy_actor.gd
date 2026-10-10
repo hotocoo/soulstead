@@ -23,12 +23,36 @@ var _wander_timer: float = 0.0
 var _wander_direction := Vector3.ZERO
 var _was_provoked := false
 var _tell_phase := 0.0
+var _hp_bar: Label3D
 
 func _ready() -> void:
 	faction = "hostile"
 	super()
 	if visual == null:
 		configure(archetype)
+	_build_hp_bar()
+
+func _build_hp_bar() -> void:
+	_hp_bar = Label3D.new()
+	_hp_bar.text = ""
+	_hp_bar.position = Vector3(0, Look.BODY_HEIGHT + 0.5, 0)
+	_hp_bar.font_size = 10
+	_hp_bar.modulate = Color(1.0, 0.3, 0.3)
+	_hp_bar.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	_hp_bar.visible = false
+	add_child(_hp_bar)
+	health_changed.connect(_on_health_changed)
+
+func _on_health_changed(current: float, maximum: float) -> void:
+	if current >= maximum:
+		_hp_bar.visible = false
+		return
+	_hp_bar.visible = true
+	var pct := int(current / maximum * 100)
+	_hp_bar.text = "%d%%" % pct
+	# Flash red when low
+	if current < maximum * 0.25:
+		_hp_bar.modulate = Color(1.0, 0.1, 0.1)
 
 func configure(id: String, decay: int = 0) -> void:
 	archetype = id
