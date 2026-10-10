@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"scythe": {
+		"name": "Scythe", "power": 16.0, "windup": 0.3, "active": 0.15, "recovery": 0.6,
+		"reach": 2.5, "arc": 1.0, "heavy_ratio": 1.5, "color": Color("#6a6a6a"), "shape": "scythe",
+	},
+	"morningstar": {
+		"name": "Morningstar", "power": 14.0, "windup": 0.25, "active": 0.1, "recovery": 0.45,
+		"reach": 2.0, "arc": 0.6, "heavy_ratio": 1.4, "color": Color("#7a7a7a"), "shape": "morningstar",
+	},
 	"rapier": {
 		"name": "Rapier", "power": 8.0, "windup": 0.12, "active": 0.05, "recovery": 0.25,
 		"reach": 2.0, "arc": 0.3, "heavy_ratio": 1.2, "color": Color("#9a9a9a"), "shape": "rapier",
