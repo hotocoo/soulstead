@@ -20,6 +20,7 @@ var kills := 0
 var _remote_bodies: Dictionary = {}
 
 func _ready() -> void:
+	Look.apply_fog(self)
 	_rng.seed = WorldState.world_seed + int(WorldState.world_day) * 7919
 	var location := WorldState.current_location
 	var decay := WorldState.region_decay(location)

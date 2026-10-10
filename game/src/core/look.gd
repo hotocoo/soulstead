@@ -117,6 +117,24 @@ static func blood_burst(position: Vector3, scene: Node) -> void:
 	scene.add_child(cleanup)
 	cleanup.start()
 
+## Apply atmospheric fog to the world environment.
+static func apply_fog(scene: Node) -> void:
+	# Find or create WorldEnvironment
+	var env_node := scene.get_node_or_null("WorldEnvironment") as WorldEnvironment
+	if env_node == null:
+		env_node = WorldEnvironment.new()
+		env_node.name = "WorldEnvironment"
+		scene.add_child(env_node)
+	var env := env_node.environment as Environment
+	if env == null:
+		env = Environment.new()
+		env_node.environment = env
+	env.fog_mode = Environment.FOG_MODE_EXPONENTIATED
+	env.fog_color = Color(0.15, 0.15, 0.18)
+	env.fog_sky_affect = 0.3
+	env.fog_height_max = 8.0
+	env.fog_density = 0.04
+
 ## Authored Blender asset loader. Generated GLBs are the production visual path;
 ## procedural meshes remain the deterministic fallback if an asset is absent.
 static func authored(asset_id: String, scale_factor: float = 1.0) -> Node3D:
