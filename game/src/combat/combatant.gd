@@ -242,4 +242,5 @@ func swing(reach: float, arc: float, info: Dictionary) -> Array[Combatant]:
 		elif other.take_hit(hit_info):
 			hits.append(other)
 			Look.ember_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.6, 0), get_tree().root)
+			Look.blood_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.7, 0), get_tree().root)
 	return hits

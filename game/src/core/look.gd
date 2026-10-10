@@ -83,6 +83,40 @@ static func ember_burst(position: Vector3, scene: Node) -> void:
 	scene.add_child(cleanup)
 	cleanup.start()
 
+## Spawn a brief burst of blood particles at a position.
+static func blood_burst(position: Vector3, scene: Node) -> void:
+	var particles := GPUParticles3D.new()
+	particles.position = position
+	var material := ParticleProcessMaterial.new()
+	material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+	material.emission_sphere_radius = 0.1
+	material.initial_velocity_min = 1.0
+	material.initial_velocity_max = 3.0
+	material.gravity = Vector3(0, -5.0, 0)
+	material.lifetime = 0.5
+	material.lifetime_randomness = 0.4
+	material.one_shot = true
+	material.amount = 8
+	material.explosiveness = 1.0
+	particles.process_material = material
+	var mesh := SphereMesh.new()
+	mesh.radius = 0.03
+	mesh.height = 0.06
+	mesh.radial_segments = 4
+	mesh.rings = 2
+	particles.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(0.6, 0.1, 0.1)
+	particles.material_override = mat
+	scene.add_child(particles)
+	particles.emitting = true
+	var cleanup := Timer.new()
+	cleanup.wait_time = 0.8
+	cleanup.one_shot = true
+	cleanup.timeout.connect(particles.queue_free)
+	scene.add_child(cleanup)
+	cleanup.start()
+
 ## Authored Blender asset loader. Generated GLBs are the production visual path;
 ## procedural meshes remain the deterministic fallback if an asset is absent.
 static func authored(asset_id: String, scale_factor: float = 1.0) -> Node3D:
