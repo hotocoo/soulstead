@@ -158,6 +158,17 @@ func _tick_tell(delta: float) -> void:
 	visual.rotation.x = lerp(visual.rotation.x, -0.35, 12.0 * delta)
 
 func _acquire_target() -> void:
+	# Check if nearby enemies have a target we should also target
+	if _target == null:
+		for node: Node in get_tree().get_nodes_in_group("enemies"):
+			var other := node as EnemyActor
+			if other == null or other == self or other._target == null:
+				continue
+			if global_position.distance_to(other.global_position) < 8.0:
+				# Coordinate: target the same enemy as our neighbor
+				if global_position.distance_to(other._target.global_position) <= aggro_range:
+					_target = other._target
+					return
 	if _target != null and _target.is_alive():
 		if global_position.distance_to(_target.global_position) > LOSE_AGGRO_DISTANCE:
 			if not _was_provoked:
