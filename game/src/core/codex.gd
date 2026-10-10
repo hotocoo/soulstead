@@ -50,6 +50,14 @@ const WEAPONS := {
 		"name": "Chain Flail", "power": 16.0, "windup": 0.35, "active": 0.15, "recovery": 0.6,
 		"reach": 2.5, "arc": 1.5, "heavy_ratio": 1.5, "color": Color("#7a7a7a"), "shape": "flail",
 	},
+	"iron_trident": {
+		"name": "Iron Trident", "power": 15.0, "windup": 0.35, "active": 0.15, "recovery": 0.55,
+		"reach": 3.5, "arc": 0.6, "heavy_ratio": 1.4, "color": Color("#6a6a6a"), "shape": "trident",
+	},
+	"iron_mace": {
+		"name": "Iron Mace", "power": 18.0, "windup": 0.4, "active": 0.12, "recovery": 0.65,
+		"reach": 1.8, "arc": 0.8, "heavy_ratio": 1.5, "color": Color("#7a7a7a"), "shape": "mace",
+	},
 	"iron_halberd": {
 		"name": "Iron Halberd", "power": 18.0, "windup": 0.45, "active": 0.18, "recovery": 0.7,
 		"reach": 4.5, "arc": 0.8, "heavy_ratio": 1.6, "color": Color("#6a6a6a"), "shape": "halberd",
