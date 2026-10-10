@@ -221,4 +221,4 @@ func die() -> void:
 	if randf() < drop_chance:
 		var loot := 1 + int(randf() * 3)
 		WorldState.materials["timber"] = int(WorldState.materials.get("timber", 0)) + loot
-		Chronicle.record("enemy_loot", {"enemy": display_name, "loot": "timber", "amount": loot})
+		Chronicle.record("enemy_loot", "%s dropped %d timber" % [display_name, loot])

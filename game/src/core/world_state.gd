@@ -431,7 +431,7 @@ func echo(id: String) -> Dictionary:
 	return {}
 
 ## Returns the enemy stat multiplier based on difficulty.
-static func difficulty_multiplier() -> float:
+func difficulty_multiplier() -> float:
 	match difficulty:
 		"easy": return 0.75
 		"hard": return 1.35

@@ -16,6 +16,7 @@ var player: PlayerActor
 
 var _rng := RandomNumberGenerator.new()
 var _exit_position := Vector3.ZERO
+var kills := 0
 var _remote_bodies: Dictionary = {}
 
 func _ready() -> void:
@@ -235,6 +236,7 @@ func _on_remote_state(peer_id: int, state: Dictionary) -> void:
 # --- Consequence hooks ---------------------------------------------------
 
 func _on_enemy_slain(enemy: EnemyActor) -> void:
+	kills += 1
 	Chronicle.record("enemy_slain", enemy.display_name)
 	WorldState.faction_delta("cull", 2)
 	WorldState.faction_delta("hearthkeepers", -1)

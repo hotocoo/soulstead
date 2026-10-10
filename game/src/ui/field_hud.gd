@@ -17,6 +17,7 @@ var _story_body: Label
 var _story_objective: Label
 var _exit_arrow: Label
 var _vignette: ColorRect
+var _kill_label: Label
 
 func _ready() -> void:
 	layer = 10
@@ -40,6 +41,15 @@ func _ready() -> void:
 	_exit_arrow.offset_bottom = 24
 	_exit_arrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_exit_arrow)
+	# Kill counter
+	_kill_label = UiTheme.label("Slain: 0", 8, UiTheme.INK_DIM)
+	_kill_label.anchor_left = 1.0
+	_kill_label.anchor_right = 1.0
+	_kill_label.offset_left = -80
+	_kill_label.offset_right = -8
+	_kill_label.offset_top = 30
+	_kill_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	add_child(_kill_label)
 
 	_health_bar = UiTheme.bar(UiTheme.HP_COLOR, 92)
 	frame.add_child(_health_bar)
@@ -84,6 +94,11 @@ func bind(actor: PlayerActor) -> void:
 	_refresh_flasks()
 
 func _process(_delta: float) -> void:
+	# Update kill counter and low health vignette
+	var expedition = get_tree().get_first_node_in_group("expedition")
+	if expedition != null:
+		if expedition.has("kills"):
+			_kill_label.text = "Slain: %d" % int(expedition.kills)
 	# Low health vignette
 	if player != null and player.health > 0.0:
 		var health_pct = player.health / player.max_health
