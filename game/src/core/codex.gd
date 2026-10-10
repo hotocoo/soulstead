@@ -163,6 +163,25 @@ const FAMILY := ["Ashfall", "Grey", "Holt", "Verren", "Stonewake", "Ember", "Dun
 static func random_name(rng: RandomNumberGenerator) -> String:
 	return "%s %s" % [GIVEN[rng.randi() % GIVEN.size()], FAMILY[rng.randi() % FAMILY.size()]]
 
+## Villager dialogue options
+const VILLAGER_DIALOGUE := {
+	"trader": [
+		{"text": "What do you have for sale?", "response": "I have iron ore and timber. Good quality, from the old mines."},
+		{"text": "Tell me about the ash-waste.", "response": "It was once farmland. The ash came down and nothing grew after."},
+		{"text": "Any advice for a new wielder?", "response": "Don't swing too hard. The ash-things tire you out."},
+	],
+	"elder": [
+		{"text": "What happened to the old world?", "response": "The sky cracked and the embers fell. We buried what we could."},
+		{"text": "Tell me about the blade.", "response": "It chooses who carries it. Not the other way around."},
+		{"text": "How do we survive?", "response": "We remember. That's how we survive."},
+	],
+	"blacksmith": [
+		{"text": "Can you forge me a weapon?", "response": "Bring me iron and I'll see what I can do."},
+		{"text": "What's the best metal?", "response": "Iron from the old mines. Nothing else holds an edge."},
+		{"text": "Tell me about the old forges.", "response": "They burned hot and never stopped. Now we make do."},
+	],
+}
+
 ## Crafting recipes: item_id -> {materials, result, result_type}
 const RECIPES := {
 	"iron_sword": {"materials": {"iron": 3, "timber": 1}, "result": "iron_sword", "result_type": "weapon"},
