@@ -222,6 +222,10 @@ func swing(reach: float, arc: float, info: Dictionary) -> Array[Combatant]:
 			hit_info["damage"] = float(hit_info["damage"]) * 2.0
 			if other.take_hit(hit_info):
 				hits.append(other)
+				# Hit stop on critical hits
+				var player = self as PlayerActor
+				if player != null:
+					player.trigger_hit_stop(0.1)
 				Look.ember_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.8, 0), get_tree().root)
 				# Larger damage number for crits
 				var label := Label3D.new()

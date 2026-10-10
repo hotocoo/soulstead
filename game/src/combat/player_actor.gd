@@ -47,6 +47,7 @@ var _attack_kind: String = "light"
 var _attack_hit: bool = false
 var _dodge_direction := Vector3.FORWARD
 var _shake_intensity := 0.0
+var _hit_stop := 0.0
 var _blade: Node3D
 var _camera_yaw := 0.0
 var _camera_pitch := CAMERA_PITCH
@@ -128,6 +129,9 @@ func dodge_duration() -> float:
 func shake_camera(intensity: float = 0.15) -> void:
 	_shake_intensity = intensity
 
+func trigger_hit_stop(duration: float = 0.08) -> void:
+	_hit_stop = duration
+
 func weapon() -> Dictionary:
 	return Codex.weapon(weapon_id)
 
@@ -170,6 +174,10 @@ func _nearest_enemy_in_arc(range: float, arc: float) -> Combatant:
 func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		super(delta)
+		return
+	# Hit stop: briefly freeze the game on critical hits
+	if _hit_stop > 0.0:
+		_hit_stop -= delta
 		return
 	# Decay screen shake
 	if _shake_intensity > 0.0:
