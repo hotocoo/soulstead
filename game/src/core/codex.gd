@@ -307,6 +307,9 @@ const BUILDINGS := {
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
+	"lumber_mill": {"materials": {"timber": 8, "iron": 2}, "name": "Lumber Mill", "description": "Produces timber automatically."},
+	"iron_mine": {"materials": {"iron": 5, "timber": 6}, "name": "Iron Mine", "description": "Produces iron automatically."},
+	"relic_temple": {"materials": {"relic": 5, "iron": 3}, "name": "Relic Temple", "description": "Produces relics automatically."},
 }
 
 ## Villager dialogue options
