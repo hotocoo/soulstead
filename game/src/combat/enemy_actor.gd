@@ -289,6 +289,9 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+	# Guardian enemies block with shield
+	if posture == "guardian" and randf() < 0.25:
+		info["damage"] *= 0.5
 		# Call for help: alert nearby enemies
 		if randf() < 0.1:
 			var nearby = get_tree().get_nodes_in_group("enemies")
