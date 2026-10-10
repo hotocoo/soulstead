@@ -123,6 +123,20 @@ func _spawn_enemies(location: String = "wrenfield", decay: int = 0) -> void:
 		enemy.slain.connect(_on_enemy_slain)
 		enemy.spared.connect(_on_enemy_spared)
 		placed += 1
+	# Spawn Ash King boss in highest decay regions
+	if decay >= 4:
+		var boss := EnemyActor.new()
+		boss.configure("ash_king", decay)
+		var boss_pos := Terrain.to_world(Vector2i(0, -5), 0.4)
+		boss.position = boss_pos
+		var time_scale := 1.0
+		var diff_scale := WorldState.difficulty_multiplier()
+		boss.damage *= time_scale * diff_scale
+		boss.max_health *= time_scale * diff_scale
+		boss.health = boss.max_health
+		boss.slain.connect(_on_enemy_slain)
+		boss.spared.connect(_on_enemy_spared)
+		add_child(boss)
 
 func _spawn_story_landmarks(location: String) -> void:
 	var points: Array[Dictionary] = []

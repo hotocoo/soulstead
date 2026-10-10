@@ -71,6 +71,11 @@ const ENEMIES := {
 		"tell": 0.75, "reach": 3.0, "color": Color("#8b4513"), "shape": "humanoid",
 		"size": 24, "aggro": 12.0, "posture": "bulwark", "relics": 2,
 	},
+	"ash_king": {
+		"name": "The Ash King", "hp": 500.0, "damage": 40.0, "poise": 150.0, "speed": 2.0,
+		"tell": 0.8, "reach": 3.5, "color": Color("#4a3a2a"), "shape": "humanoid",
+		"size": 35, "aggro": 25.0, "posture": "bulwark", "relics": 5,
+	},
 	"keeper": {
 		"name": "The Keeper", "hp": 200.0, "damage": 28.0, "poise": 100.0, "speed": 1.4,
 		"tell": 0.9, "reach": 3.4, "color": Color("#2a2a3a"), "shape": "humanoid",
