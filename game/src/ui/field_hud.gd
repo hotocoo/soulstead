@@ -16,9 +16,16 @@ var _story_title: Label
 var _story_body: Label
 var _story_objective: Label
 var _exit_arrow: Label
+var _vignette: ColorRect
 
 func _ready() -> void:
 	layer = 10
+	# Low health vignette
+	_vignette = ColorRect.new()
+	_vignette.color = Color(0.8, 0.1, 0.1, 0.0)
+	_vignette.anchor_right = 1.0
+	_vignette.anchor_bottom = 1.0
+	add_child(_vignette)
 	var frame := VBoxContainer.new()
 	frame.position = Vector2(8, 8)
 	frame.add_theme_constant_override("separation", 2)
@@ -77,6 +84,14 @@ func bind(actor: PlayerActor) -> void:
 	_refresh_flasks()
 
 func _process(_delta: float) -> void:
+	# Low health vignette
+	if player != null and player.health > 0.0:
+		var health_pct = player.health / player.max_health
+		if health_pct < 0.25:
+			var pulse = 0.3 + 0.2 * sin(Time.get_ticks_msec() * 0.005)
+			_vignette.color = Color(0.8, 0.1, 0.1, pulse)
+		else:
+			_vignette.color = Color(0.8, 0.1, 0.1, 0.0)
 	var hour := int(fmod(WorldState.world_day, 1.0) * 24.0)
 	_clock_label.text = "Day %d  %02d:00\n%s" % [
 			int(WorldState.world_day), hour,
