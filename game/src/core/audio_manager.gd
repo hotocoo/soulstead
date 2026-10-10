@@ -48,6 +48,14 @@ func play_flask() -> void:
 	_fill_stream(_pickup_stream, _flask_buffer)
 	_play(_pickup_stream)
 
+func play_ui_click() -> void:
+	_fill_stream(_pickup_stream, _ui_click_buffer)
+	_play(_pickup_stream)
+
+func play_ui_select() -> void:
+	_fill_stream(_pickup_stream, _ui_select_buffer)
+	_play(_pickup_stream)
+
 func play_step() -> void:
 	_fill_stream(_dodge_stream, _step_buffer)
 	_play(_dodge_stream)
@@ -92,6 +100,18 @@ func _pickup_buffer(t: float, time: float) -> int:
 	var env = exp(-t * 8.0)
 	var wave = sin(time * 1500.0 * TAU)
 	return int(wave * env * 12000)
+
+func _ui_click_buffer(t: float, time: float) -> int:
+	# UI click: short high-pitched blip
+	var env = exp(-t * 40.0)
+	var wave = sin(time * 800.0 * TAU)
+	return int(wave * env * 8000)
+
+func _ui_select_buffer(t: float, time: float) -> int:
+	# UI select: slightly longer, higher-pitched blip
+	var env = exp(-t * 20.0)
+	var wave = sin(time * 1200.0 * TAU)
+	return int(wave * env * 8000)
 
 func _flask_buffer(t: float, time: float) -> int:
 	# Liquid sound: modulated sine
