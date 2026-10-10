@@ -113,6 +113,16 @@ const ENEMIES := {
 		"tell": 0.15, "reach": 1.0, "color": Color("#6a4a3a"), "shape": "beast",
 		"size": 5, "aggro": 12.0, "posture": "darter", "relics": 0,
 	},
+	"ash_giant": {
+		"name": "Ash Giant", "hp": 300.0, "damage": 30.0, "poise": 100.0, "speed": 1.5,
+		"tell": 1.0, "reach": 4.0, "color": Color("#5a5a5a"), "shape": "humanoid",
+		"size": 30, "aggro": 25.0, "posture": "bulwark", "relics": 3,
+	},
+	"swarm_spitter": {
+		"name": "Swarm Spitter", "hp": 25.0, "damage": 8.0, "poise": 5.0, "speed": 2.5,
+		"tell": 0.3, "reach": 5.0, "color": Color("#7a8a5a"), "shape": "beast",
+		"size": 8, "aggro": 15.0, "posture": "ranged", "relics": 0,
+	},
 	"burrower": {
 		"name": "Burrower", "hp": 60.0, "damage": 15.0, "poise": 30.0, "speed": 2.0,
 		"tell": 0.8, "reach": 2.0, "color": Color("#5a4a3a"), "shape": "beast",
