@@ -45,6 +45,35 @@ static func vertex_colored() -> StandardMaterial3D:
 	material.roughness = 0.95
 	return material
 
+## Apply rain effect to a scene.
+static func apply_rain(parent: Node3D, intensity: float = 1.0) -> void:
+	# Rain particles
+	var particles := GPUParticles3D.new()
+	particles.one_shot = false
+	particles.loop_mode = GPUParticles3D.LOOP
+	particles.emitting = true
+	var material := ParticleProcessMaterial.new()
+	material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	material.emission_box_extents = Vector3(20.0, 1.0, 20.0)
+	material.initial_velocity_min = -15.0
+	material.initial_velocity_max = -25.0
+	material.gravity = Vector3(0, -15.0, 0)
+	material.lifetime = 2.0
+	material.lifetime_randomness = 0.3
+	material.amount = int(200.0 * intensity)
+	particles.process_material = material
+	var mesh := SphereMesh.new()
+	mesh.radius = 0.02
+	mesh.height = 0.1
+	mesh.radial_segments = 3
+	mesh.rings = 1
+	particles.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(0.6, 0.6, 0.7, 0.5)
+	particles.material_override = mat
+	particles.position = Vector3(0, 10.0, 0)
+	parent.add_child(particles)
+
 ## Spawn a brief burst of ember particles at a position.
 static func ember_burst(position: Vector3, scene: Node) -> void:
 	var particles := GPUParticles3D.new()
