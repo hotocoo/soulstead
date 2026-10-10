@@ -352,6 +352,16 @@ func _resolve_swing() -> void:
 func _animate_blade(delta: float) -> void:
 	if _blade == null:
 		return
+	# Glow based on weapon upgrade level
+	var upgrade_level := WorldState.weapon_upgrades.get(weapon_id, 0.0)
+	if _blade_mesh != null:
+		var mat := _blade_mesh.material_override as StandardMaterial3D
+		if mat == null:
+			mat = StandardMaterial3D.new()
+			_blade_mesh.material_override = mat
+		mat.emission_enabled = upgrade_level > 0.0
+		mat.emission = Color(0.8, 0.6, 0.2)
+		mat.emission_energy_multiplier = upgrade_level * 25.0
 	var target := 0.0
 	match state:
 		State.WINDUP:
