@@ -200,6 +200,13 @@ func _think(delta: float) -> void:
 	offset.y = 0.0
 	facing = offset.normalized()
 	var distance := offset.length()
+	# Ranged enemies keep distance
+	if posture == "ranged" and distance < reach * 0.8:
+		# Back away
+		var retreat := -offset.normalized()
+		velocity.x = move_toward(velocity.x, retreat.x * move_speed * 0.6, 20.0 * delta)
+		velocity.z = move_toward(velocity.z, retreat.z * move_speed * 0.6, 20.0 * delta)
+		return
 	if distance <= reach:
 		enter_state(State.WINDUP, tell_time)
 		return
