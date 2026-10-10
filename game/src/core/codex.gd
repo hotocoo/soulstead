@@ -38,6 +38,14 @@ const WEAPONS := {
 		"name": "Oak Bow", "power": 10.0, "windup": 0.3, "active": 0.1, "recovery": 0.4,
 		"reach": 8.0, "arc": 0.3, "heavy_ratio": 1.3, "color": Color("#8a6a4a"), "shape": "bow",
 	},
+	"chain_flail": {
+		"name": "Chain Flail", "power": 16.0, "windup": 0.35, "active": 0.15, "recovery": 0.6,
+		"reach": 2.5, "arc": 1.5, "heavy_ratio": 1.5, "color": Color("#7a7a7a"), "shape": "flail",
+	},
+	"iron_halberd": {
+		"name": "Iron Halberd", "power": 18.0, "windup": 0.45, "active": 0.18, "recovery": 0.7,
+		"reach": 4.5, "arc": 0.8, "heavy_ratio": 1.6, "color": Color("#6a6a6a"), "shape": "halberd",
+	},
 	"ember_staff": {
 		"name": "Ember Staff", "power": 12.0, "windup": 0.4, "active": 0.15, "recovery": 0.5,
 		"reach": 6.0, "arc": 0.5, "heavy_ratio": 1.4, "color": Color("#aa6633"), "shape": "staff",
