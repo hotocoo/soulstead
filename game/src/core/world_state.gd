@@ -62,6 +62,7 @@ var materials: Dictionary = {"timber": 12, "iron": 4, "relic": 0}
 var inventory: Array[Dictionary] = []
 var active_quest: Dictionary = {}
 var completed_quests: Array[String] = []
+var achievements: Array[String] = []
 var villagers: Array[Dictionary] = []
 var lineage: Array[Dictionary] = []
 var echoes: Array[Dictionary] = []
@@ -531,6 +532,18 @@ func inventory_count(item_id: String) -> int:
 		if item["id"] == item_id:
 			return item["count"]
 	return 0
+
+## Unlock an achievement.
+func unlock_achievement(achievement_id: String) -> bool:
+	if achievements.has(achievement_id):
+		return false
+	achievements.append(achievement_id)
+	Chronicle.record("achievement", achievement_id)
+	return true
+
+## Check if an achievement is unlocked.
+func has_achievement(achievement_id: String) -> bool:
+	return achievements.has(achievement_id)
 
 ## Trade resources with a villager.
 func trade(villager_id: String, give: Dictionary, receive: Dictionary) -> bool:
