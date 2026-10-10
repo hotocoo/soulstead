@@ -265,6 +265,9 @@ const BUILDINGS := {
 	"church": {"materials": {"timber": 15, "iron": 5}, "name": "Church", "description": "Reduces grief over time."},
 	"library": {"materials": {"timber": 10, "relic": 2}, "name": "Library", "description": "Unlocks new recipes."},
 	"observatory": {"materials": {"iron": 5, "relic": 3}, "name": "Observatory", "description": "Predicts settlement events."},
+	"bathhouse": {"materials": {"timber": 8, "iron": 2}, "name": "Bathhouse", "description": "Restores composure faster."},
+	"tavern": {"materials": {"timber": 12, "iron": 3}, "name": "Tavern", "description": "Villagers gain morale."},
+	"smithy": {"materials": {"iron": 8, "timber": 6}, "name": "Smithy", "description": "Unlocks advanced weapon upgrades."},
 }
 
 ## Villager dialogue options
