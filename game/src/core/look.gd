@@ -45,6 +45,38 @@ static func vertex_colored() -> StandardMaterial3D:
 	material.roughness = 0.95
 	return material
 
+## Spawn a brief burst of ember particles at a position.
+static func ember_burst(position: Vector3, scene: Node) -> void:
+	var particles := GPUParticles3D.new()
+	particles.position = position
+	var material := ParticleProcessMaterial.new()
+	material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+	material.emission_sphere_radius = 0.15
+	material.initial_velocity_min = 1.5
+	material.initial_velocity_max = 4.0
+	material.gravity = Vector3(0, -4.0, 0)
+	material.lifetime = 0.4
+	material.lifetime_randomness = 0.3
+	material.one_shot = true
+	material.amount = 12
+	material.explosiveness = 1.0
+	particles.process_material = material
+	var mesh := SphereMesh.new()
+	mesh.radius = 0.04
+	mesh.height = 0.08
+	mesh.radial_segments = 6
+	mesh.rings = 3
+	particles.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = EMBER
+	mat.emission_enabled = true
+	mat.emission = EMBER
+	mat.emission_energy_multiplier = 2.0
+	particles.material_override = mat
+	scene.add_child(particles)
+	particles.emitting = true
+	get_tree().create_timer(0.8).timeout.connect(particles.queue_free)
+
 ## Authored Blender asset loader. Generated GLBs are the production visual path;
 ## procedural meshes remain the deterministic fallback if an asset is absent.
 static func authored(asset_id: String, scale_factor: float = 1.0) -> Node3D:

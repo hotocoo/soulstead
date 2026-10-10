@@ -125,6 +125,7 @@ func take_hit(info: Dictionary) -> bool:
 	poise -= poise_damage
 	health_changed.emit(health, max_health)
 	_flash()
+	show_damage_number(damage)
 	var knock: Vector3 = info.get("knockback", Vector3.ZERO)
 	if knock != Vector3.ZERO:
 		velocity = Vector3(knock.x, velocity.y, knock.z)
@@ -155,6 +156,22 @@ func on_parry_success(_info: Dictionary) -> void:
 func _flash() -> void:
 	_set_tint(Color(2.0, 1.4, 1.2))
 	_flash_timer = HIT_FLASH
+
+## Show floating damage number above the combatant.
+func show_damage_number(amount: float) -> void:
+	if amount <= 0.0:
+		return
+	var label := Label3D.new()
+	label.text = str(int(amount))
+	label.position = global_position + Vector3(0, BODY_HEIGHT + 0.4, 0)
+	label.font_size = 14
+	label.modulate = Color(1.0, 0.85, 0.6)
+	label.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	get_tree().root.add_child(label)
+	var tween := get_tree().create_tween()
+	tween.tween_property(label, "position:y", label.position.y + 0.8, 0.7)
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.7)
+	tween.tween_callback(label.queue_free)
 
 func enter_state(next: State, duration: float) -> void:
 	state = next
@@ -194,4 +211,5 @@ func swing(reach: float, arc: float, info: Dictionary) -> Array[Combatant]:
 		hit_info["knockback"] = offset.normalized() * float(info.get("knock_force", 4.0))
 		if other.take_hit(hit_info):
 			hits.append(other)
+			Look.ember_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.6, 0), get_tree().root)
 	return hits
