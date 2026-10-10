@@ -244,6 +244,9 @@ const BUILDINGS := {
 	"granary": {"materials": {"timber": 8}, "name": "Granary", "description": "Stores food for the settlement."},
 	"well": {"materials": {"iron": 3, "timber": 4}, "name": "Well", "description": "Provides clean water."},
 	"forge": {"materials": {"iron": 5, "timber": 5}, "name": "Forge", "description": "Enhances weapon crafting."},
+	"church": {"materials": {"timber": 15, "iron": 5}, "name": "Church", "description": "Reduces grief over time."},
+	"library": {"materials": {"timber": 10, "relic": 2}, "name": "Library", "description": "Unlocks new recipes."},
+	"observatory": {"materials": {"iron": 5, "relic": 3}, "name": "Observatory", "description": "Predicts settlement events."},
 }
 
 ## Villager dialogue options
