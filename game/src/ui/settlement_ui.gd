@@ -9,6 +9,7 @@ var _prompt: Label
 var _status: Label
 var _line_panel: PanelContainer
 var _resources_label: Label
+var _minimap: Control
 var _line_label: Label
 var _panel: PanelContainer
 var _panel_body: VBoxContainer
@@ -17,6 +18,7 @@ func _ready() -> void:
 	layer = 10
 	_build_status()
 	_build_resources()
+	_build_minimap()
 	_build_prompt()
 	_build_line_box()
 	WorldState.grief_changed.connect(func(_v: int) -> void: _refresh_status())
@@ -36,6 +38,25 @@ func _build_status() -> void:
 	add_child(holder)
 	_status = UiTheme.label("", 7)
 	holder.add_child(_status)
+
+func _build_minimap() -> void:
+	_minimap = Control.new()
+	_minimap.position = Vector2(6, 120)
+	_minimap.size = Vector2(120, 90)
+	_minimap.draw.connect(_draw_minimap)
+	add_child(_minimap)
+
+func _draw_minimap() -> void:
+	# Draw minimap background
+	_minimap.draw_rect(Rect2(0, 0, 120, 90), Color(0.05, 0.05, 0.08, 0.7))
+	_minimap.draw_rect(Rect2(0, 0, 120, 90), Color(0.3, 0.3, 0.3, 0.5), false, 1.0)
+	# Draw settlement buildings (simplified)
+	_minimap.draw_rect(Rect2(20, 20, 20, 15), Color(0.4, 0.3, 0.2, 0.8))
+	_minimap.draw_rect(Rect2(80, 20, 20, 15), Color(0.4, 0.3, 0.2, 0.8))
+	_minimap.draw_rect(Rect2(20, 55, 20, 15), Color(0.4, 0.3, 0.2, 0.8))
+	_minimap.draw_rect(Rect2(80, 55, 20, 15), Color(0.4, 0.3, 0.2, 0.8))
+	# Draw player position (center)
+	_minimap.draw_circle(Vector2(60, 45), 3.0, Color(0.3, 0.6, 1.0, 1.0))
 
 func _build_resources() -> void:
 	_resources_label = UiTheme.label("", 7, UiTheme.INK_DIM)
