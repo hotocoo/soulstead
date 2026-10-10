@@ -205,6 +205,9 @@ func _random_open_tile() -> Vector2i:
 func _process(delta: float) -> void:
 	# The clock only runs out here; the settlement is outside time.
 	WorldState.advance_time(delta * HOURS_PER_SECOND / 24.0)
+	# Update sky based on time of day
+	var hour := fmod(WorldState.world_day, 1.0) * 24.0
+	Look.update_sky(self, hour)
 	if player != null and player.is_alive():
 		NetSession.push_state({
 			"x": player.global_position.x,

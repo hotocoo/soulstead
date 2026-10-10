@@ -117,6 +117,32 @@ static func blood_burst(position: Vector3, scene: Node) -> void:
 	scene.add_child(cleanup)
 	cleanup.start()
 
+## Update sky colors based on time of day.
+static func update_sky(scene: Node, hour: float) -> void:
+	var env_node := scene.get_node_or_null("WorldEnvironment") as WorldEnvironment
+	if env_node == null:
+		return
+	var env := env_node.environment as Environment
+	if env == null or env.sky == null:
+		return
+	var sky := env.sky as Sky
+	var material := sky.sky_material as ProceduralSkyMaterial
+	if material == null:
+		return
+	# Day/night cycle: 6-18 = day, 18-6 = night
+	var day_factor := 0.0
+	if hour >= 6.0 and hour <= 18.0:
+		day_factor = sin((hour - 6.0) / 12.0 * PI)
+	# Lerp between night and day colors
+	var night_top := Color(0.05, 0.05, 0.1)
+	var day_top := Color(0.1, 0.12, 0.18)
+	var night_horizon := Color(0.1, 0.08, 0.12)
+	var day_horizon := Color(0.35, 0.37, 0.43)
+	material.sky_top_color = night_top.lerp(day_top, day_factor)
+	material.sky_horizon_color = night_horizon.lerp(day_horizon, day_factor)
+	# Ambient light follows the sun
+	env.ambient_light_energy = 0.15 + 0.35 * day_factor
+
 ## Apply atmospheric fog to the world environment.
 static func apply_fog(scene: Node) -> void:
 	# Find or create WorldEnvironment
