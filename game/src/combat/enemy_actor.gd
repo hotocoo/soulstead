@@ -25,6 +25,7 @@ var _wander_direction := Vector3.ZERO
 var _was_provoked := false
 var _tell_phase := 0.0
 var _hp_bar: Label3D
+var _phase2: bool = false
 
 func _ready() -> void:
 	faction = "hostile"
@@ -112,6 +113,12 @@ func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		super(delta)
 		return
+	# Boss phase 2: faster and stronger below 50% health
+	if enemy_id == "ash_king" and hp < max_hp * 0.5 and not _phase2:
+		_phase2 = true
+		speed *= 1.3
+		damage *= 1.2
+		Chronicle.record("boss_phase2", "Ash King enters phase 2")
 	_tick_tell(delta)
 	_acquire_target()
 	match state:
