@@ -79,6 +79,16 @@ const ENEMIES := {
 		"tell": 0.75, "reach": 3.0, "color": Color("#8b4513"), "shape": "humanoid",
 		"size": 24, "aggro": 12.0, "posture": "bulwark", "relics": 2,
 	},
+	"ash_crawler": {
+		"name": "Ash Crawler", "hp": 20.0, "damage": 6.0, "poise": 5.0, "speed": 6.0,
+		"tell": 0.2, "reach": 1.2, "color": Color("#5a5a5a"), "shape": "beast",
+		"size": 10, "aggro": 15.0, "posture": "darter", "relics": 0,
+	},
+	"iron_golem": {
+		"name": "Iron Golem", "hp": 200.0, "damage": 25.0, "poise": 120.0, "speed": 1.0,
+		"tell": 1.0, "reach": 2.0, "color": Color("#6a6a6a"), "shape": "humanoid",
+		"size": 30, "aggro": 10.0, "posture": "bulwark", "relics": 3,
+	},
 	"ember_slinger": {
 		"name": "Ember Slinger", "hp": 35.0, "damage": 10.0, "poise": 10.0, "speed": 3.0,
 		"tell": 0.5, "reach": 8.0, "color": Color("#b87333"), "shape": "humanoid",
