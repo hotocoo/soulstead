@@ -203,6 +203,8 @@ const BUILDINGS := {
 	"watchtower": {"materials": {"timber": 10, "iron": 3}, "name": "Watchtower", "description": "Early warning of approaching threats."},
 	"barracks": {"materials": {"timber": 8, "iron": 8}, "name": "Barracks", "description": "Houses additional defenders."},
 	"market": {"materials": {"timber": 12, "iron": 2}, "name": "Market", "description": "Villagers can trade with travelers."},
+	"herbalist": {"materials": {"timber": 6, "relic": 1}, "name": "Herbalist", "description": "Crafts healing potions."},
+	"stables": {"materials": {"timber": 10, "iron": 2}, "name": "Stables", "description": "Houses pack animals for expeditions."},
 }
 
 ## Villager dialogue options
