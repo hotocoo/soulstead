@@ -17,12 +17,18 @@ var _story_body: Label
 var _story_objective: Label
 var _exit_arrow: Label
 var _vignette: ColorRect
+var _tutorial_label: Label
 var _kill_label: Label
 var _radar: Control
 
 
 func _ready() -> void:
 	layer = 10
+	# Tutorial label
+	_tutorial_label = UiTheme.label("", 9, Color(1.0, 0.8, 0.4, 0.8))
+	_tutorial_label.position = Vector2(10, 50)
+	_tutorial_label.visible = false
+	add_child(_tutorial_label)
 	# Low health vignette
 	_vignette = ColorRect.new()
 	_vignette.color = Color(0.8, 0.1, 0.1, 0.0)
