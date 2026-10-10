@@ -532,6 +532,24 @@ func inventory_count(item_id: String) -> int:
 			return item["count"]
 	return 0
 
+## Upgrade a settlement facility.
+func upgrade_facility(id: String) -> bool:
+	var cost := facility_upgrade_cost(id)
+	# Check if we have enough resources
+	for resource in cost:
+		if int(materials.get(resource, 0)) < int(cost[resource]):
+			return false
+	# Deduct resources
+	for resource in cost:
+		materials[resource] = int(materials.get(resource, 0)) - int(cost[resource])
+	# Upgrade the facility
+	for facility in facilities:
+		if facility["id"] == id:
+			facility["level"] = int(facility.get("level", 1)) + 1
+			break
+	Chronicle.record("facility_upgraded", "%s -> level %d" % [id, facility["level"]])
+	return true
+
 func facility_upgrade_cost(id: String) -> Dictionary:
 	var level := int(buildings.get(id, 1))
 	if level >= 3:
