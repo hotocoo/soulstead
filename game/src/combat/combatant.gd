@@ -209,7 +209,31 @@ func swing(reach: float, arc: float, info: Dictionary) -> Array[Combatant]:
 		var hit_info := info.duplicate()
 		hit_info["attacker"] = self
 		hit_info["knockback"] = offset.normalized() * float(info.get("knock_force", 4.0))
-		if other.take_hit(hit_info):
+		# Critical hit: 2x damage when hitting an enemy from behind or when poise-broken
+		var is_crit := false
+		var to_target := offset.normalized()
+		if absf(to_target.signed_angle_to(other.facing, Vector3.UP)) > deg_to_rad(90.0):
+			is_crit = true  # Backstab
+		elif other.state == State.STAGGER:
+			is_crit = true  # Poise-broken
+		if is_crit:
+			hit_info["damage"] = float(hit_info["damage"]) * 2.0
+			if other.take_hit(hit_info):
+				hits.append(other)
+				Look.ember_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.8, 0), get_tree().root)
+				# Larger damage number for crits
+				var label := Label3D.new()
+				label.text = "CRIT " + str(int(float(hit_info["damage"])))
+				label.position = other.global_position + Vector3(0, Look.BODY_HEIGHT + 0.8, 0)
+				label.font_size = 16
+				label.modulate = Color(1.0, 0.6, 0.2)
+				label.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+				get_tree().root.add_child(label)
+				var tween := get_tree().create_tween()
+				tween.tween_property(label, "position:y", label.position.y + 0.6, 0.6)
+				tween.parallel().tween_property(label, "modulate:a", 0.0, 0.6)
+				tween.tween_callback(label.queue_free)
+		elif other.take_hit(hit_info):
 			hits.append(other)
 			Look.ember_burst(other.global_position + Vector3(0, Look.BODY_HEIGHT * 0.6, 0), get_tree().root)
 	return hits
