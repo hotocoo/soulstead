@@ -153,6 +153,16 @@ const FAMILY := ["Ashfall", "Grey", "Holt", "Verren", "Stonewake", "Ember", "Dun
 static func random_name(rng: RandomNumberGenerator) -> String:
 	return "%s %s" % [GIVEN[rng.randi() % GIVEN.size()], FAMILY[rng.randi() % FAMILY.size()]]
 
+## Crafting recipes: item_id -> {materials, result, result_type}
+const RECIPES := {
+	"iron_sword": {"materials": {"iron": 3, "timber": 1}, "result": "iron_sword", "result_type": "weapon"},
+	"oathbreaker": {"materials": {"iron": 5, "relic": 1}, "result": "oathbreaker", "result_type": "weapon"},
+	"twin_cinders": {"materials": {"iron": 2, "timber": 1}, "result": "twin_cinders", "result_type": "weapon"},
+	"long_spear": {"materials": {"timber": 2, "iron": 1}, "result": "long_spear", "result_type": "weapon"},
+	"great_axe": {"materials": {"iron": 4, "timber": 2}, "result": "great_axe", "result_type": "weapon"},
+	"healing_poultice": {"materials": {"timber": 1}, "result": "healing_poultice", "result_type": "consumable"},
+}
+
 func weapon(id: String) -> Dictionary:
 	return WEAPONS.get(id, WEAPONS["ashblade"])
 
