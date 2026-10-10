@@ -92,6 +92,11 @@ const ENEMIES := {
 		"tell": 0.2, "reach": 1.2, "color": Color("#5a5a5a"), "shape": "beast",
 		"size": 10, "aggro": 15.0, "posture": "darter", "relics": 0,
 	},
+	"ash_wraith": {
+		"name": "Ash Wraith", "hp": 50.0, "damage": 12.0, "poise": 20.0, "speed": 3.0,
+		"tell": 0.4, "reach": 2.5, "color": Color("#8a8a9a"), "shape": "humanoid",
+		"size": 15, "aggro": 20.0, "posture": "dancer", "relics": 1,
+	},
 	"iron_golem": {
 		"name": "Iron Golem", "hp": 200.0, "damage": 25.0, "poise": 120.0, "speed": 1.0,
 		"tell": 1.0, "reach": 2.0, "color": Color("#6a6a6a"), "shape": "humanoid",
