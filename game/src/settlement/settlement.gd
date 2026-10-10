@@ -17,6 +17,11 @@ var ui: SettlementUi
 
 var _map: Dictionary = {}
 
+func _process(delta: float) -> void:
+	# Update sky based on world time
+	var hour := fmod(WorldState.world_day, 1.0) * 24.0
+	Look.update_sky(hour)
+
 func _ready() -> void:
 	add_child(Look.environment(WorldState.region_decay("wrenfield")))
 	add_child(Look.sun())
