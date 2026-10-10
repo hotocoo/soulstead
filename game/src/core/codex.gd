@@ -71,6 +71,11 @@ const ENEMIES := {
 		"tell": 0.75, "reach": 3.0, "color": Color("#8b4513"), "shape": "humanoid",
 		"size": 24, "aggro": 12.0, "posture": "bulwark", "relics": 2,
 	},
+	"ember_slinger": {
+		"name": "Ember Slinger", "hp": 35.0, "damage": 10.0, "poise": 10.0, "speed": 3.0,
+		"tell": 0.5, "reach": 8.0, "color": Color("#b87333"), "shape": "humanoid",
+		"size": 15, "aggro": 20.0, "posture": "skirmisher", "relics": 0,
+	},
 	"ash_king": {
 		"name": "The Ash King", "hp": 500.0, "damage": 40.0, "poise": 150.0, "speed": 2.0,
 		"tell": 0.8, "reach": 3.5, "color": Color("#4a3a2a"), "shape": "humanoid",
