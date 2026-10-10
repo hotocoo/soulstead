@@ -100,6 +100,16 @@ const ENEMIES := {
 		"tell": 0.2, "reach": 1.2, "color": Color("#5a5a5a"), "shape": "beast",
 		"size": 10, "aggro": 15.0, "posture": "darter", "relics": 0,
 	},
+	"ember_bat": {
+		"name": "Ember Bat", "hp": 15.0, "damage": 5.0, "poise": 3.0, "speed": 7.0,
+		"tell": 0.15, "reach": 1.0, "color": Color("#6a4a3a"), "shape": "beast",
+		"size": 5, "aggro": 12.0, "posture": "darter", "relics": 0,
+	},
+	"burrower": {
+		"name": "Burrower", "hp": 60.0, "damage": 15.0, "poise": 30.0, "speed": 2.0,
+		"tell": 0.8, "reach": 2.0, "color": Color("#5a4a3a"), "shape": "beast",
+		"size": 15, "aggro": 10.0, "posture": "bulwark", "relics": 1,
+	},
 	"ash_wraith": {
 		"name": "Ash Wraith", "hp": 50.0, "damage": 12.0, "poise": 20.0, "speed": 3.0,
 		"tell": 0.4, "reach": 2.5, "color": Color("#8a8a9a"), "shape": "humanoid",
