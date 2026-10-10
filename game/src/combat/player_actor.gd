@@ -257,6 +257,8 @@ func _try_dodge(direction: Vector3) -> void:
 	_dodge_direction = direction.normalized() if direction.length() > 0.1 else facing
 	_spend_composure(DODGE_COST)
 	enter_state(State.DODGE, DODGE_TIME)
+	if get_tree().root.has_node("AudioManager"):
+		get_tree().root.get_node("AudioManager").play_dodge()
 
 func _try_attack(kind: String) -> void:
 	var data: Dictionary = weapon()[kind]

@@ -126,6 +126,8 @@ func take_hit(info: Dictionary) -> bool:
 	health_changed.emit(health, max_health)
 	_flash()
 	show_damage_number(damage)
+	if get_tree().root.has_node("AudioManager"):
+		get_tree().root.get_node("AudioManager").play_hit()
 	var knock: Vector3 = info.get("knockback", Vector3.ZERO)
 	if knock != Vector3.ZERO:
 		velocity = Vector3(knock.x, velocity.y, knock.z)

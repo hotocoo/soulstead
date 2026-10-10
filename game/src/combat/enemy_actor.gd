@@ -214,3 +214,5 @@ func die() -> void:
 		return
 	slain.emit(self)
 	super()
+	if get_tree().root.has_node("AudioManager"):
+		get_tree().root.get_node("AudioManager").play_death()
