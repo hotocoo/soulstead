@@ -286,6 +286,9 @@ const BUILDINGS := {
 	"bathhouse": {"materials": {"timber": 8, "iron": 2}, "name": "Bathhouse", "description": "Restores composure faster."},
 	"tavern": {"materials": {"timber": 12, "iron": 3}, "name": "Tavern", "description": "Villagers gain morale."},
 	"smithy": {"materials": {"iron": 8, "timber": 6}, "name": "Smithy", "description": "Unlocks advanced weapon upgrades."},
+	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
+	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
+	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
 }
 
 ## Villager dialogue options
