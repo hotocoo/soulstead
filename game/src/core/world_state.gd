@@ -532,6 +532,21 @@ func inventory_count(item_id: String) -> int:
 			return item["count"]
 	return 0
 
+## Trade resources with a villager.
+func trade(villager_id: String, give: Dictionary, receive: Dictionary) -> bool:
+	# Check if we have enough resources to give
+	for resource in give:
+		if int(materials.get(resource, 0)) < int(give[resource]):
+			return false
+	# Deduct resources we give
+	for resource in give:
+		materials[resource] = int(materials.get(resource, 0)) - int(give[resource])
+	# Add resources we receive
+	for resource in receive:
+		materials[resource] = int(materials.get(resource, 0)) + int(receive[resource])
+	Chronicle.record("trade", "Traded with %s" % villager_id)
+	return true
+
 ## Upgrade a settlement facility.
 func upgrade_facility(id: String) -> bool:
 	var cost := facility_upgrade_cost(id)
