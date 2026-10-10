@@ -22,6 +22,7 @@ var _remote_bodies: Dictionary = {}
 func _ready() -> void:
 	Look.apply_fog(self)
 	_rng.seed = WorldState.world_seed + int(WorldState.world_day) * 7919
+	_spawn_companions()
 	var location := WorldState.current_location
 	var decay := WorldState.region_decay(location)
 	map = MapGen.generate(WorldState.world_seed, location, decay)
@@ -38,6 +39,23 @@ func _ready() -> void:
 		WorldState.story_director.notify_event("expedition_entered")
 	if not NetSession.remote_state.is_connected(_on_remote_state):
 		NetSession.remote_state.connect(_on_remote_state)
+
+func _spawn_companions() -> void:
+	# Spawn 1-2 companions based on settlement population
+	var population := WorldState.population
+	var companion_count := 1
+	if population >= 5:
+		companion_count = 2
+	for i in range(companion_count):
+		var companion := CompanionActor.new()
+		companion.configure("villager", 0)
+		companion.global_position = Vector3(2.0 + i * 1.5, 0.0, 1.0)
+		add_child(companion)
+		# Set player reference after spawning
+		get_tree().create_timer(0.1).timeout.connect(func():
+			if player != null:
+				companion.set_player(player)
+			)
 
 func _spawn_player() -> void:
 	var spawn: Vector2i = _open_near(map["spawn"])

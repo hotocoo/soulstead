@@ -51,6 +51,11 @@ const ENEMIES := {
 		"tell": 0.26, "reach": 1.9, "color": Color("#a4462f"), "shape": "beast",
 		"size": 15, "aggro": 18.0, "posture": "darter", "relics": 0,
 	},
+	"villager": {
+		"name": "Villager", "hp": 40.0, "damage": 8.0, "poise": 25.0, "speed": 3.5,
+		"tell": 0.3, "reach": 1.8, "color": Color("#7a8b6f"), "shape": "humanoid",
+		"size": 16, "aggro": 12.0, "posture": "shambler", "relics": 0,
+	},
 	"warden": {
 		"name": "Gravewarden", "hp": 90.0, "damage": 18.0, "poise": 55.0, "speed": 2.2,
 		"tell": 0.62, "reach": 2.7, "color": Color("#4d5a6b"), "shape": "humanoid",
