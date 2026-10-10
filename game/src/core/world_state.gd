@@ -59,6 +59,7 @@ var world_seed: int = 0
 var world_day: float = 1.0
 var grief: int = 0
 var materials: Dictionary = {"timber": 12, "iron": 4, "relic": 0}
+var inventory: Array[Dictionary] = []
 var villagers: Array[Dictionary] = []
 var lineage: Array[Dictionary] = []
 var echoes: Array[Dictionary] = []
@@ -479,6 +480,32 @@ func _simulate_settlement(days: float) -> void:
 	# A stronger palisade absorbs part of the cost of decay pressure.
 	if region_decay("wrenfield") >= 4 and warden < 3:
 		log_entry.emit("The palisade is no longer enough for the Grey.")
+
+## Add an item to the player's inventory.
+func add_to_inventory(item_id: String, count: int = 1) -> void:
+	# Check if item already exists
+	for item in inventory:
+		if item["id"] == item_id:
+			item["count"] += count
+			return
+	inventory.append({"id": item_id, "count": count})
+
+## Remove an item from the player's inventory.
+func remove_from_inventory(item_id: String, count: int = 1) -> bool:
+	for i in range(inventory.size()):
+		if inventory[i]["id"] == item_id:
+			inventory[i]["count"] -= count
+			if inventory[i]["count"] <= 0:
+				inventory.remove_at(i)
+			return true
+	return false
+
+## Get the count of an item in the inventory.
+func inventory_count(item_id: String) -> int:
+	for item in inventory:
+		if item["id"] == item_id:
+			return item["count"]
+	return 0
 
 func facility_upgrade_cost(id: String) -> Dictionary:
 	var level := int(buildings.get(id, 1))
