@@ -25,6 +25,16 @@ const WEAPONS := {
 		"light": {"startup": 0.06, "active": 0.08, "recovery": 0.14, "cost": 8.0, "motion": 1.0, "poise": 6.0},
 		"heavy": {"startup": 0.18, "active": 0.10, "recovery": 0.26, "cost": 18.0, "motion": 1.6, "poise": 16.0},
 	},
+	"oathbreaker": {
+		"name": "Oathbreaker", "power": 32.0, "reach": 2.8, "arc": 2.2,
+		"light": {"startup": 0.24, "active": 0.14, "recovery": 0.36, "cost": 24.0, "motion": 1.0, "poise": 32.0},
+		"heavy": {"startup": 0.52, "active": 0.18, "recovery": 0.58, "cost": 40.0, "motion": 2.6, "poise": 72.0},
+	},
+	"twin_cinders": {
+		"name": "Twin Cinders", "power": 7.0, "reach": 1.5, "arc": 1.5,
+		"light": {"startup": 0.05, "active": 0.07, "recovery": 0.12, "cost": 7.0, "motion": 1.0, "poise": 5.0},
+		"heavy": {"startup": 0.16, "active": 0.09, "recovery": 0.22, "cost": 15.0, "motion": 1.5, "poise": 12.0},
+	},
 }
 
 # --- Enemies -------------------------------------------------------------
@@ -55,6 +65,11 @@ const ENEMIES := {
 		"name": "Cinder Brute", "hp": 120.0, "damage": 22.0, "poise": 70.0, "speed": 1.8,
 		"tell": 0.75, "reach": 3.0, "color": Color("#8b4513"), "shape": "humanoid",
 		"size": 24, "aggro": 12.0, "posture": "bulwark", "relics": 2,
+	},
+	"keeper": {
+		"name": "The Keeper", "hp": 200.0, "damage": 28.0, "poise": 100.0, "speed": 1.4,
+		"tell": 0.9, "reach": 3.4, "color": Color("#2a2a3a"), "shape": "humanoid",
+		"size": 28, "aggro": 16.0, "posture": "bulwark", "relics": 3,
 	},
 }
 

@@ -13,6 +13,15 @@ func _ready() -> void:
 	Flow.bind(container)
 	Flow.to_title()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_F5:
+			WorldState.save_game()
+			Chronicle.record("quick_saved", {"text": "Quick-saved."})
+		elif event.keycode == KEY_F9:
+			WorldState.load_game()
+			Chronicle.record("quick_loaded", {"text": "Quick-loaded."})
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if NetSession.is_networked():

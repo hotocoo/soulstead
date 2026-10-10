@@ -19,6 +19,8 @@ const BINDINGS := {
 	"confirm": [KEY_ENTER, KEY_E],
 	"cycle_next": [KEY_D, KEY_RIGHT],
 	"cycle_prev": [KEY_A, KEY_LEFT],
+	"quick_save": [KEY_F5],
+	"quick_load": [KEY_F9],
 }
 
 const MOUSE_BINDINGS := {
