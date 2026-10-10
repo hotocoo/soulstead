@@ -46,6 +46,7 @@ var _attack: Dictionary = {}
 var _attack_kind: String = "light"
 var _attack_hit: bool = false
 var _dodge_direction := Vector3.FORWARD
+var _shake_intensity := 0.0
 var _blade: Node3D
 var _camera_yaw := 0.0
 var _camera_pitch := CAMERA_PITCH
@@ -104,6 +105,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		var pivot := get_node_or_null("CameraPivot") as Node3D
 		if pivot != null:
 			pivot.rotation = Vector3(_camera_pitch, _camera_yaw, 0.0)
+			# Screen shake
+			if _shake_intensity > 0.0:
+				var offset := Vector3(
+					randf_range(-1.0, 1.0) * _shake_intensity,
+					randf_range(-1.0, 1.0) * _shake_intensity * 0.5,
+					randf_range(-1.0, 1.0) * _shake_intensity
+				)
+				camera.position = Vector3(0, CAMERA_HEIGHT, CAMERA_DISTANCE) + offset
 	elif event is InputEventKey:
 		var key := event as InputEventKey
 		if key.pressed and key.keycode == KEY_ESCAPE:
@@ -115,6 +124,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func dodge_duration() -> float:
 	return DODGE_TIME
+
+func shake_camera(intensity: float = 0.15) -> void:
+	_shake_intensity = intensity
 
 func weapon() -> Dictionary:
 	return Codex.weapon(weapon_id)
@@ -159,6 +171,9 @@ func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		super(delta)
 		return
+	# Decay screen shake
+	if _shake_intensity > 0.0:
+		_shake_intensity = maxf(0.0, _shake_intensity - delta * 3.0)
 	_tick_composure(delta)
 	# Guard: hold I to block, costs composure over time
 	if state == State.IDLE and Input.is_action_pressed("guard") and input_enabled:
@@ -370,6 +385,7 @@ func take_hit(info: Dictionary) -> bool:
 	if landed and state != State.DEAD:
 		# Being hit mid-swing costs Composure: pressure compounds.
 		_spend_composure(8.0)
+		shake_camera(0.12 + float(info.get("damage", 10.0)) * 0.008)
 	return landed
 
 func die() -> void:
