@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Retreat when low health
+	if hp < max_hp * 0.3 and _target != null and _target.global_position.distance_to(global_position) < 3.0:
+		var offset = global_position - _target.global_position
+		offset.y = 0.0
+		facing = offset.normalized()
+		velocity.x = facing.x * move_speed
+		velocity.z = facing.z * move_speed
 	# Ranged enemies throw projectiles
 	if posture == "ranged" and _target != null and _target.global_position.distance_to(global_position) > reach * 0.7 and randf() < 0.02:
 		var offset = _target.global_position - global_position
