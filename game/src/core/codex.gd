@@ -163,6 +163,14 @@ const FAMILY := ["Ashfall", "Grey", "Holt", "Verren", "Stonewake", "Ember", "Dun
 static func random_name(rng: RandomNumberGenerator) -> String:
 	return "%s %s" % [GIVEN[rng.randi() % GIVEN.size()], FAMILY[rng.randi() % FAMILY.size()]]
 
+## Building recipes: building_id -> {materials, name, description}
+const BUILDINGS := {
+	"warehouse": {"materials": {"timber": 10, "iron": 2}, "name": "Warehouse", "description": "Stores extra resources."},
+	"training_grounds": {"materials": {"timber": 5, "iron": 5}, "name": "Training Grounds", "description": "Villagers train to become better fighters."},
+	"library": {"materials": {"timber": 8, "relic": 1}, "name": "Library", "description": "Preserves knowledge of the old world."},
+	"wall": {"materials": {"timber": 15, "iron": 5}, "name": "Settlement Wall", "description": "Protects the settlement from raids."},
+}
+
 ## Villager dialogue options
 const VILLAGER_DIALOGUE := {
 	"trader": [
