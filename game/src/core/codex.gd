@@ -30,6 +30,14 @@ const WEAPONS := {
 		"light": {"startup": 0.24, "active": 0.14, "recovery": 0.36, "cost": 24.0, "motion": 1.0, "poise": 32.0},
 		"heavy": {"startup": 0.52, "active": 0.18, "recovery": 0.58, "cost": 40.0, "motion": 2.6, "poise": 72.0},
 	},
+	"long_spear": {
+		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
+		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
+	},
+	"great_axe": {
+		"name": "Great Axe", "power": 20.0, "windup": 0.55, "active": 0.2, "recovery": 0.85,
+		"reach": 2.8, "arc": 1.3, "heavy_ratio": 1.7, "color": Color("#5a4a3a"), "shape": "axe",
+	},
 	"twin_cinders": {
 		"name": "Twin Cinders", "power": 7.0, "reach": 1.5, "arc": 1.5,
 		"light": {"startup": 0.05, "active": 0.07, "recovery": 0.12, "cost": 7.0, "motion": 1.0, "poise": 5.0},
