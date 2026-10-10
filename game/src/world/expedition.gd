@@ -137,6 +137,14 @@ func _spawn_enemies(location: String = "wrenfield", decay: int = 0) -> void:
 		boss.slain.connect(_on_enemy_slain)
 		boss.spared.connect(_on_enemy_spared)
 		add_child(boss)
+		# Create boss arena
+		var arena := StaticBody3D.new()
+		arena.position = boss.position
+		var shape := CollisionShape3D.new()
+		var box := BoxShape3D.new()
+		box.size = Vector3(20, 5, 20)
+		shape.shape = box
+		arena.add_child(shape)
 
 func _spawn_story_landmarks(location: String) -> void:
 	var points: Array[Dictionary] = []
