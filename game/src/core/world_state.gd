@@ -60,6 +60,8 @@ var world_day: float = 1.0
 var grief: int = 0
 var materials: Dictionary = {"timber": 12, "iron": 4, "relic": 0}
 var inventory: Array[Dictionary] = []
+var active_quest: Dictionary = {}
+var completed_quests: Array[String] = []
 var villagers: Array[Dictionary] = []
 var lineage: Array[Dictionary] = []
 var echoes: Array[Dictionary] = []
@@ -480,6 +482,29 @@ func _simulate_settlement(days: float) -> void:
 	# A stronger palisade absorbs part of the cost of decay pressure.
 	if region_decay("wrenfield") >= 4 and warden < 3:
 		log_entry.emit("The palisade is no longer enough for the Grey.")
+
+## Start a new quest.
+func start_quest(quest_id: String, title: String, objective: String) -> void:
+	active_quest = {"id": quest_id, "title": title, "objective": objective, "progress": 0}
+	Chronicle.record("quest_started", title)
+
+## Update quest progress.
+func update_quest_progress(amount: int = 1) -> void:
+	if active_quest.is_empty():
+		return
+	active_quest["progress"] += amount
+
+## Complete the active quest.
+func complete_quest() -> void:
+	if active_quest.is_empty():
+		return
+	completed_quests.append(active_quest["id"])
+	Chronicle.record("quest_completed", active_quest["title"])
+	active_quest = {}
+
+## Check if a quest is completed.
+func is_quest_completed(quest_id: String) -> bool:
+	return completed_quests.has(quest_id)
 
 ## Add an item to the player's inventory.
 func add_to_inventory(item_id: String, count: int = 1) -> void:
