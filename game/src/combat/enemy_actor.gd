@@ -211,7 +211,10 @@ func _think(delta: float) -> void:
 		enter_state(State.WINDUP, tell_time)
 		return
 	var approach := offset.normalized()
-	if posture == "darter":
+	# Flanking: some enemies circle to the side
+	if posture == "dancer" and distance > reach * 1.5:
+		approach = approach.rotated(Vector3.UP, sin(Time.get_ticks_msec() * 0.001) * 1.2)
+	elif posture == "darter":
 		# Stalkers circle before committing, so the player can read a rhythm.
 		approach = approach.rotated(Vector3.UP, sin(Time.get_ticks_msec() * 0.002) * 0.8)
 	elif posture == "bulwark" and distance < reach * 1.8:
