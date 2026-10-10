@@ -349,6 +349,9 @@ const BUILDINGS := {
 	"school": {"materials": {"timber": 12, "iron": 3}, "name": "School", "description": "Villagers learn new skills."},
 	"hospital": {"materials": {"timber": 10, "iron": 4}, "name": "Hospital", "description": "Heals injured villagers."},
 	"farmhouse": {"materials": {"timber": 6}, "name": "Farmhouse", "description": "Houses farm workers."},
+	"library": {"materials": {"timber": 15, "iron": 5}, "name": "Library", "description": "Stores knowledge and scrolls."},
+	"bathhouse": {"materials": {"timber": 8, "iron": 3}, "name": "Bathhouse", "description": "Restores villager health."},
+	"armory": {"materials": {"iron": 8, "timber": 5}, "name": "Armory", "description": "Stores weapons and armor."},
 }
 
 ## Villager dialogue options
