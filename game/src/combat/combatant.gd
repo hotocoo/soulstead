@@ -165,7 +165,7 @@ func show_damage_number(amount: float) -> void:
 		return
 	var label := Label3D.new()
 	label.text = str(int(amount))
-	label.position = global_position + Vector3(0, BODY_HEIGHT + 0.4, 0)
+	label.position = global_position + Vector3(0, Look.BODY_HEIGHT + 0.4, 0)
 	label.font_size = 14
 	label.modulate = Color(1.0, 0.85, 0.6)
 	label.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED

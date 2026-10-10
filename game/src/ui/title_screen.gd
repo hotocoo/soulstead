@@ -31,6 +31,17 @@ func _ready() -> void:
 		"WASD move    J light    K heavy    L parry    Space dodge    Q flask    E interact",
 		7, UiTheme.INK_DIM))
 
+	# Difficulty selector
+	var diff_row := HBoxContainer.new()
+	diff_row.add_theme_constant_override("separation", 4)
+	column.add_child(diff_row)
+	diff_row.add_child(UiTheme.label("Difficulty:", 8, UiTheme.INK_DIM))
+	for diff_id in ["easy", "normal", "hard"]:
+		var btn := _button(diff_id.capitalize(), true, func() -> void:
+			WorldState.difficulty = diff_id
+		)
+		diff_row.add_child(btn)
+
 	var continue_button := _button("Continue the lineage", WorldState.has_save(),
 			func() -> void: continue_lineage.emit())
 	column.add_child(continue_button)

@@ -72,6 +72,7 @@ var run_active: bool = false
 var story_director: StoryDirector
 var buildings: Dictionary = {"hearth": 1, "memorial": 1, "smithy": 1, "fields": 1, "palisade": 1}
 var weapon_upgrades: Dictionary = {}
+var difficulty: String = "normal"  # easy, normal, hard
 
 var _rng := RandomNumberGenerator.new()
 var _next_id: int = 1
@@ -428,6 +429,13 @@ func echo(id: String) -> Dictionary:
 		if entry["id"] == id:
 			return entry
 	return {}
+
+## Returns the enemy stat multiplier based on difficulty.
+static func difficulty_multiplier() -> float:
+	match difficulty:
+		"easy": return 0.75
+		"hard": return 1.35
+		_: return 1.0
 
 ## Time only passes while the player is out in the world.
 func advance_time(days: float) -> void:

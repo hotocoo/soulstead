@@ -75,7 +75,13 @@ static func ember_burst(position: Vector3, scene: Node) -> void:
 	particles.material_override = mat
 	scene.add_child(particles)
 	particles.emitting = true
-	get_tree().create_timer(0.8).timeout.connect(particles.queue_free)
+	# Auto-free after particles finish
+	var cleanup := Timer.new()
+	cleanup.wait_time = 0.8
+	cleanup.one_shot = true
+	cleanup.timeout.connect(particles.queue_free)
+	scene.add_child(cleanup)
+	cleanup.start()
 
 ## Authored Blender asset loader. Generated GLBs are the production visual path;
 ## procedural meshes remain the deterministic fallback if an asset is absent.
