@@ -396,6 +396,8 @@ const BUILDINGS := {
 	"smithy": {"materials": {"iron": 8, "timber": 6}, "name": "Smithy", "description": "Unlocks advanced weapon upgrades."},
 	"granary": {"materials": {"timber": 8, "iron": 2}, "name": "Granary", "description": "Stores food for winter."},
 	"well": {"materials": {"iron": 2, "timber": 4}, "name": "Well", "description": "Provides clean water."},
+	"stable": {"materials": {"timber": 8, "iron": 2}, "name": "Stable", "description": "Houses horses for travel."},
+	"church": {"materials": {"iron": 4, "timber": 10}, "name": "Church", "description": "Provides spiritual comfort."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
