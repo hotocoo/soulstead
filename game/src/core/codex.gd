@@ -1799,6 +1799,7 @@ const BUILDINGS := {
 	"windmill": {"materials": {"timber": 10, "iron": 2}, "name": "Windmill", "description": "Grinds grain into flour."},
 	"quarry": {"materials": {"timber": 8}, "name": "Quarry", "description": "Extracts stone from the earth."},
 	"fishery": {"materials": {"timber": 6}, "name": "Fishery", "description": "Catches fish from rivers and lakes."},
+	"pasture": {"materials": {"timber": 6}, "name": "Pasture", "description": "Raises livestock for meat and milk."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
