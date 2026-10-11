@@ -142,6 +142,10 @@ const WEAPONS := {
 		"name": "Mace", "power": 15.0, "windup": 0.3, "active": 0.08, "recovery": 0.22,
 		"reach": 1.3, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#bbbbbb"), "shape": "mace",
 	},
+	"warhammer": {
+		"name": "Warhammer", "power": 22.0, "windup": 0.4, "active": 0.1, "recovery": 0.35,
+		"reach": 1.6, "arc": 0.7, "heavy_ratio": 1.5, "color": Color("#aaaaaa"), "shape": "warhammer",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
