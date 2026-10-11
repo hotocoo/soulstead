@@ -118,6 +118,10 @@ const WEAPONS := {
 		"name": "Morning Star", "power": 18.0, "windup": 0.38, "active": 0.08, "recovery": 0.28,
 		"reach": 1.6, "arc": 0.5, "heavy_ratio": 1.4, "color": Color("#bbbbbb"), "shape": "morning_star",
 	},
+	"halberd": {
+		"name": "Halberd", "power": 20.0, "windup": 0.4, "active": 0.1, "recovery": 0.3,
+		"reach": 2.2, "arc": 0.6, "heavy_ratio": 1.5, "color": Color("#999999"), "shape": "halberd",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
