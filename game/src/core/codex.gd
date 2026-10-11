@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"mace": {
+		"name": "Mace", "power": 12.0, "windup": 0.18, "active": 0.06, "recovery": 0.22,
+		"reach": 1.6, "arc": 0.7, "heavy_ratio": 1.0, "color": Color("#7a7a7a"), "shape": "mace",
+	},
+	"war_hammer": {
+		"name": "War Hammer", "power": 16.0, "windup": 0.25, "active": 0.08, "recovery": 0.3,
+		"reach": 1.8, "arc": 0.7, "heavy_ratio": 1.2, "color": Color("#8a8a8a"), "shape": "war_hammer",
+	},
 	"spear": {
 		"name": "Spear", "power": 12.0, "windup": 0.15, "active": 0.08, "recovery": 0.2,
 		"reach": 3.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "spear",
