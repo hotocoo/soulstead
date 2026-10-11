@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use dark attacks occasionally
+	if randf() < 0.002:
+		var dark_damage = damage * 1.0
+		TargetActor.take_hit(dark_damage, self, 0.0, false, "dark")
 	# Enemies use holy attacks occasionally
 	if randf() < 0.002:
 		var holy_damage = damage * 1.1
