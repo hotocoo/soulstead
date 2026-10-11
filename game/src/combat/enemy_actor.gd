@@ -344,6 +344,12 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+	# Call for help when taking damage
+	if randf() < 0.1:
+		var nearby = get_tree().get_nodes_in_group("enemies")
+		for enemy in nearby:
+			if enemy != self and enemy.global_position.distance_to(global_position) < 10.0:
+				enemy._target = attacker
 	# Fast enemies dodge occasionally
 	if posture == "darter" and randf() < 0.2:
 		var dodge_dir = Vector3(randf_range(-1, 1), 0.0, randf_range(-1, 1)).normalized()
