@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"whip": {
+		"name": "Whip", "power": 6.0, "windup": 0.15, "active": 0.05, "recovery": 0.25,
+		"reach": 3.0, "arc": 0.3, "heavy_ratio": 1.2, "color": Color("#8a7a6a"), "shape": "whip",
+	},
+	"chain": {
+		"name": "Chain", "power": 8.0, "windup": 0.2, "active": 0.08, "recovery": 0.3,
+		"reach": 2.5, "arc": 0.5, "heavy_ratio": 1.3, "color": Color("#7a7a7a"), "shape": "chain",
+	},
 	"halberd": {
 		"name": "Halberd", "power": 18.0, "windup": 0.3, "active": 0.12, "recovery": 0.55,
 		"reach": 4.5, "arc": 0.7, "heavy_ratio": 1.5, "color": Color("#6a6a6a"), "shape": "halberd",
