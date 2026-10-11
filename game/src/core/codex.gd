@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"crossbow": {
+		"name": "Crossbow", "power": 14.0, "windup": 0.5, "active": 0.05, "recovery": 0.3,
+		"reach": 10.0, "arc": 0.1, "heavy_ratio": 1.0, "color": Color("#8a7a6a"), "shape": "crossbow",
+	},
+	"slingshot": {
+		"name": "Slingshot", "power": 6.0, "windup": 0.2, "active": 0.03, "recovery": 0.15,
+		"reach": 8.0, "arc": 0.1, "heavy_ratio": 1.0, "color": Color("#7a7a6a"), "shape": "slingshot",
+	},
 	"mace": {
 		"name": "Mace", "power": 12.0, "windup": 0.18, "active": 0.06, "recovery": 0.22,
 		"reach": 1.6, "arc": 0.7, "heavy_ratio": 1.0, "color": Color("#7a7a7a"), "shape": "mace",
