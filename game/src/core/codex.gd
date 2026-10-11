@@ -130,6 +130,10 @@ const WEAPONS := {
 		"name": "Trident", "power": 16.0, "windup": 0.3, "active": 0.08, "recovery": 0.25,
 		"reach": 2.2, "arc": 0.4, "heavy_ratio": 1.3, "color": Color("#aaaaaa"), "shape": "trident",
 	},
+	"broadsword": {
+		"name": "Broadsword", "power": 12.0, "windup": 0.25, "active": 0.08, "recovery": 0.2,
+		"reach": 1.4, "arc": 0.7, "heavy_ratio": 1.2, "color": Color("#cccccc"), "shape": "broadsword",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
