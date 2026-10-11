@@ -811,6 +811,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_skeleton": {
+		"name": "Ash Skeleton", "hp": 60.0, "damage": 8.0, "poise": 20.0, "speed": 2.5,
+		"tell": 0.2, "reach": 1.5, "color": Color("#aaaaaa"), "shape": "skeleton",
+		"size": 12, "aggro": 8.0, "posture": "darter", "relics": 2,
+	},
 	"ash_zombie": {
 		"name": "Ash Zombie", "hp": 80.0, "damage": 10.0, "poise": 25.0, "speed": 1.5,
 		"tell": 0.3, "reach": 1.5, "color": Color("#7a7a6a"), "shape": "zombie",
