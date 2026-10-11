@@ -374,6 +374,10 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+	# Fast enemies dodge occasionally
+	if posture == "darter" and randf() < 0.2:
+		var dodge_dir = Vector3(randf_range(-1, 1), 0.0, randf_range(-1, 1)).normalized()
+		global_position += dodge_dir * 1.5
 	# Heavy attacks stagger enemies
 	if info.get("heavy", false):
 		enter_state(State.STAGGER, 0.5)
