@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use spirit attacks occasionally
+	if randf() < 0.002:
+		var spirit_damage = damage * 0.6
+		TargetActor.take_hit(spirit_damage, self, 0.0, false, "spirit")
 	# Enemies use shadow attacks occasionally
 	if randf() < 0.002:
 		var shadow_damage = damage * 0.7
