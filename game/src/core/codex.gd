@@ -707,6 +707,7 @@ const BUILDINGS := {
 	"inn": {"materials": {"timber": 10}, "name": "Inn", "description": "A place for travelers to rest."},
 	"bathhouse": {"materials": {"timber": 8}, "name": "Bathhouse", "description": "A place for villagers to relax."},
 	"temple": {"materials": {"timber": 15}, "name": "Temple", "description": "A place for worship."},
+	"library": {"materials": {"timber": 12}, "name": "Library", "description": "A place for learning."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
