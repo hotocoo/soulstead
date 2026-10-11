@@ -411,6 +411,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_mage": {
+		"name": "Ash Mage", "hp": 45.0, "damage": 15.0, "poise": 12.0, "speed": 1.5,
+		"tell": 0.35, "reach": 8.0, "color": Color("#8a7a9a"), "shape": "humanoid",
+		"size": 12, "aggro": 12.0, "posture": "balanced", "relics": 2,
+	},
+	"ash_wizard": {
+		"name": "Ash Wizard", "hp": 55.0, "damage": 18.0, "poise": 15.0, "speed": 1.5,
+		"tell": 0.35, "reach": 8.0, "color": Color("#9a8aaa"), "shape": "humanoid",
+		"size": 13, "aggro": 10.0, "posture": "balanced", "relics": 3,
+	},
 	"ash_hunter": {
 		"name": "Ash Hunter", "hp": 50.0, "damage": 12.0, "poise": 15.0, "speed": 2.5,
 		"tell": 0.3, "reach": 10.0, "color": Color("#7a8a7a"), "shape": "humanoid",
