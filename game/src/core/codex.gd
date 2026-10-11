@@ -555,7 +555,7 @@ const BUILDINGS := {
 	"stables": {"materials": {"timber": 8}, "name": "Stables", "description": "Houses horses for travel."},
 	"stable": {"materials": {"timber": 8}, "name": "Stable", "description": "Houses one horse."},
 	"lighthouse": {"materials": {"iron": 4, "timber": 6}, "name": "Lighthouse", "description": "Guides ships safely."},
-	"lighthouse": {"materials": {"iron": 4, "timber": 6}, "name": "Lighthouse", "description": "Guides ships safely."},
+	"granary": {"materials": {"timber": 10}, "name": "Granary", "description": "Stores food for the settlement."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
