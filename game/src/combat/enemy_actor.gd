@@ -188,6 +188,21 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Ranged enemies keep distance
+	if reach > 4.0 and _target != null:
+		var dist = global_position.distance_to(_target.global_position)
+		if dist < 3.0:
+			var away = global_position - _target.global_position
+			away.y = 0.0
+			facing = away.normalized()
+			velocity.x = facing.x * move_speed
+			velocity.z = facing.z * move_speed
+		elif dist > 10.0:
+			var to_target = _target.global_position - global_position
+			to_target.y = 0.0
+			facing = to_target.normalized()
+			velocity.x = facing.x * move_speed
+			velocity.z = facing.z * move_speed
 	# Enemies retreat when low on health
 	if current_hp < max_hp * 0.3 and _target != null:
 		var away = global_position - _target.global_position
