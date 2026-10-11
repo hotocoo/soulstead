@@ -146,6 +146,10 @@ const WEAPONS := {
 		"name": "Boomerang", "power": 10.0, "windup": 0.35, "active": 0.05, "recovery": 0.3,
 		"reach": 12.0, "arc": 0.08, "heavy_ratio": 1.1, "color": Color("#886644"), "shape": "boomerang",
 	},
+	"throwing_knife": {
+		"name": "Throwing Knife", "power": 6.0, "windup": 0.2, "active": 0.02, "recovery": 0.2,
+		"reach": 15.0, "arc": 0.03, "heavy_ratio": 1.0, "color": Color("#aaaaaa"), "shape": "knife",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
