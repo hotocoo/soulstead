@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies retreat when low on health
+	if hp < max_hp * 0.3 and _target != null and randf() < 0.005:
+		var retreat_dir = (global_position - _target.global_position).normalized()
+		global_position += retreat_dir * 2.0
 	# Guardian enemies use special heavy attack occasionally
 	if posture == "guardian" and randf() < 0.005:
 		enter_state(State.WINDUP, tell * 2.0)
