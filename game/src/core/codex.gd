@@ -516,6 +516,8 @@ const BUILDINGS := {
 	"academy": {"materials": {"iron": 4, "timber": 10}, "name": "Academy", "description": "Trains skilled villagers."},
 	"hospital": {"materials": {"iron": 3, "timber": 8}, "name": "Hospital", "description": "Heals injured villagers."},
 	"watchtower": {"materials": {"iron": 2, "timber": 6}, "name": "Watchtower", "description": "Spots approaching enemies."},
+	"stables": {"materials": {"timber": 8}, "name": "Stables", "description": "Houses horses for travel."},
+	"stable": {"materials": {"timber": 8}, "name": "Stable", "description": "Houses one horse."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
