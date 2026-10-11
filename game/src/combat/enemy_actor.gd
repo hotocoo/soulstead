@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use special attacks occasionally
+	if randf() < 0.002:
+		var special_damage = damage * 1.5
+		TargetActor.take_hit(special_damage, self, 0.0, false, "special")
 	# Enemies call for help when low on health
 	if hp < max_hp * 0.4 and randf() < 0.001:
 		var help_damage = damage * 1.2
