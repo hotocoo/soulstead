@@ -775,6 +775,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_hydra": {
+		"name": "Ash Hydra", "hp": 300.0, "damage": 30.0, "poise": 90.0, "speed": 2.0,
+		"tell": 0.25, "reach": 3.5, "color": Color("#6a7a6a"), "shape": "hydra",
+		"size": 18, "aggro": 9.0, "posture": "balanced", "relics": 8,
+	},
 	"ash_centaur": {
 		"name": "Ash Centaur", "hp": 130.0, "damage": 18.0, "poise": 35.0, "speed": 4.5,
 		"tell": 0.14, "reach": 2.2, "color": Color("#7a6a5a"), "shape": "centaur",
