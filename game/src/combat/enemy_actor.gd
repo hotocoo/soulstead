@@ -324,6 +324,9 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+	# Heavy attacks stagger enemies
+	if info.get("heavy", false) and state != State.STAGGER:
+		enter_state(State.STAGGER, 0.5)
 	# Guardian enemies block with shield
 	if posture == "guardian" and randf() < 0.25:
 		info["damage"] *= 0.5
