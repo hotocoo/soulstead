@@ -1969,6 +1969,7 @@ const BUILDINGS := {
 	"greenhouse": {"materials": {"timber": 8, "iron": 2}, "name": "Greenhouse", "description": "Grows crops year-round."},
 	"brewery": {"materials": {"timber": 6, "iron": 2}, "name": "Brewery", "description": "Brews beer and ale."},
 	"bakery": {"materials": {"timber": 4}, "name": "Bakery", "description": "Bakes bread and pastries."},
+	"library": {"materials": {"timber": 8, "iron": 2}, "name": "Library", "description": "Stores knowledge and scrolls."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
