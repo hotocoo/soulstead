@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"dagger": {
+		"name": "Dagger", "power": 5.0, "windup": 0.1, "active": 0.03, "recovery": 0.1,
+		"reach": 1.2, "arc": 0.4, "heavy_ratio": 0.9, "color": Color("#7a7a7a"), "shape": "dagger",
+	},
+	"rapier": {
+		"name": "Rapier", "power": 8.0, "windup": 0.12, "active": 0.04, "recovery": 0.15,
+		"reach": 2.0, "arc": 0.3, "heavy_ratio": 0.9, "color": Color("#8a8a8a"), "shape": "rapier",
+	},
 	"katana": {
 		"name": "Katana", "power": 10.0, "windup": 0.15, "active": 0.05, "recovery": 0.2,
 		"reach": 1.8, "arc": 0.6, "heavy_ratio": 1.1, "color": Color("#9a9a9a"), "shape": "katana",
