@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"broadsword": {
+		"name": "Broadsword", "power": 13.0, "windup": 0.2, "active": 0.1, "recovery": 0.4,
+		"reach": 2.0, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#8a8a8a"), "shape": "broadsword",
+	},
+	"dagger_pair": {
+		"name": "Dagger Pair", "power": 5.0, "windup": 0.1, "active": 0.05, "recovery": 0.2,
+		"reach": 1.2, "arc": 0.4, "heavy_ratio": 1.1, "color": Color("#9a9a9a"), "shape": "daggers",
+	},
 	"scythe": {
 		"name": "Scythe", "power": 16.0, "windup": 0.3, "active": 0.15, "recovery": 0.6,
 		"reach": 2.5, "arc": 1.0, "heavy_ratio": 1.5, "color": Color("#6a6a6a"), "shape": "scythe",
