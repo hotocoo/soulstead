@@ -366,6 +366,9 @@ func take_hit(info: Dictionary) -> bool:
 	var attacker := info.get("attacker") as Combatant
 	if attacker != null:
 		_target = attacker
+	# Heavy attacks stagger enemies
+	if info.get("heavy", false):
+		enter_state(State.STAGGER, 0.5)
 	# Call for help when taking damage
 	if randf() < 0.1:
 		var nearby = get_tree().get_nodes_in_group("enemies")
