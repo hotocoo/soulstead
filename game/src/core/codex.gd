@@ -1296,6 +1296,7 @@ const BUILDINGS := {
 	"market": {"materials": {"timber": 8, "stone": 2}, "name": "Market", "description": "A place for trading goods."},
 	"school": {"materials": {"timber": 8, "stone": 4}, "name": "School", "description": "A place for children to learn."},
 	"library": {"materials": {"timber": 8, "stone": 4}, "name": "Library", "description": "A place to store books and knowledge."},
+	"bakery": {"materials": {"timber": 6, "stone": 2}, "name": "Bakery", "description": "Produces bread and pastries."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
