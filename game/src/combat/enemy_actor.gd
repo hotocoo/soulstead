@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Guardian enemies use special heavy attack occasionally
+	if posture == "guardian" and randf() < 0.002:
+		var heavy_damage = damage * 1.5
+		TargetActor.take_hit(heavy_damage, self, 0.0, false, "heavy")
 	# Fast enemies dodge occasionally
 	if posture == "darter" and randf() < 0.005:
 		var dodge_dir = Vector3(-facing.z, 0.0, facing.x)
