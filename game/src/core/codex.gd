@@ -763,6 +763,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_harpy": {
+		"name": "Ash Harpy", "hp": 100.0, "damage": 16.0, "poise": 25.0, "speed": 4.8,
+		"tell": 0.1, "reach": 2.0, "color": Color("#9a9a9a"), "shape": "harpy",
+		"size": 10, "aggro": 13.0, "posture": "darter", "relics": 2,
+	},
+	"ash_basilisk": {
+		"name": "Ash Basilisk", "hp": 140.0, "damage": 20.0, "poise": 40.0, "speed": 2.5,
+		"tell": 0.18, "reach": 2.4, "color": Color("#7a8a7a"), "shape": "basilisk",
+		"size": 12, "aggro": 10.0, "posture": "balanced", "relics": 4,
+	},
 	"ash_cyclops": {
 		"name": "Ash Cyclops", "hp": 280.0, "damage": 32.0, "poise": 85.0, "speed": 2.2,
 		"tell": 0.28, "reach": 3.2, "color": Color("#7a7a6a"), "shape": "cyclops",
