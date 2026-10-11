@@ -2159,6 +2159,7 @@ const RECIPES := {
 	"boomerang": {"materials": {"timber": 2}, "result": "boomerang", "result_type": "weapon"},
 	"throwing_knife": {"materials": {"iron": 1}, "result": "throwing_knife", "result_type": "weapon"},
 	"torch": {"materials": {"timber": 1}, "result": "torch", "result_type": "weapon"},
+	"lantern": {"materials": {"timber": 2, "iron": 1}, "result": "lantern", "result_type": "weapon"},
 }
 
 func weapon(id: String) -> Dictionary:
