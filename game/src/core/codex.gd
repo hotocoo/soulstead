@@ -802,6 +802,7 @@ const BUILDINGS := {
 	"barracks": {"materials": {"timber": 15}, "name": "Barracks", "description": "Houses for guards."},
 	"granary": {"materials": {"timber": 12}, "name": "Granary", "description": "Stores food."},
 	"tower": {"materials": {"timber": 20}, "name": "Watchtower", "description": "Watchtower for defense."},
+	"chapel": {"materials": {"timber": 15}, "name": "Chapel", "description": "A place of worship."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
