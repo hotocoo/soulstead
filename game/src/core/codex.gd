@@ -1581,6 +1581,7 @@ const BUILDINGS := {
 	"fishery": {"materials": {"timber": 8}, "name": "Fishery", "description": "Provides fish for villagers."},
 	"pasture": {"materials": {"timber": 6}, "name": "Pasture", "description": "Grassland for grazing animals."},
 	"apiary": {"materials": {"timber": 4}, "name": "Apiary", "description": "Produces honey and beeswax."},
+	"vineyard": {"materials": {"timber": 8}, "name": "Vineyard", "description": "Grows grapes for wine."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
