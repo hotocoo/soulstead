@@ -727,6 +727,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_phoenix": {
+		"name": "Ash Phoenix", "hp": 160.0, "damage": 24.0, "poise": 45.0, "speed": 4.2,
+		"tell": 0.12, "reach": 2.6, "color": Color("#ff8844"), "shape": "phoenix",
+		"size": 14, "aggro": 12.0, "posture": "darter", "relics": 5,
+	},
+	"ash_hydra": {
+		"name": "Ash Hydra", "hp": 320.0, "damage": 28.0, "poise": 90.0, "speed": 2.5,
+		"tell": 0.22, "reach": 3.5, "color": Color("#6a8a6a"), "shape": "hydra",
+		"size": 20, "aggro": 11.0, "posture": "balanced", "relics": 7,
+	},
 	"ash_gargoyle": {
 		"name": "Ash Gargoyle", "hp": 110.0, "damage": 18.0, "poise": 35.0, "speed": 3.8,
 		"tell": 0.14, "reach": 2.3, "color": Color("#7a7a7a"), "shape": "gargoyle",
