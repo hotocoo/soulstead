@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"mace": {
+		"name": "Mace", "power": 12.0, "windup": 0.22, "active": 0.08, "recovery": 0.35,
+		"reach": 1.6, "arc": 0.5, "heavy_ratio": 1.3, "color": Color("#7a7a7a"), "shape": "mace",
+	},
+	"flail": {
+		"name": "Flail", "power": 14.0, "windup": 0.28, "active": 0.12, "recovery": 0.5,
+		"reach": 2.0, "arc": 0.8, "heavy_ratio": 1.4, "color": Color("#6a6a6a"), "shape": "flail",
+	},
 	"katana": {
 		"name": "Katana", "power": 10.0, "windup": 0.15, "active": 0.08, "recovery": 0.3,
 		"reach": 1.8, "arc": 0.5, "heavy_ratio": 1.3, "color": Color("#8a8a8a"), "shape": "katana",
