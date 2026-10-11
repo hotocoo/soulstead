@@ -102,6 +102,10 @@ const WEAPONS := {
 		"name": "Lantern", "power": 4.0, "windup": 0.25, "active": 0.1, "recovery": 0.2,
 		"reach": 1.2, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#ffdd88"), "shape": "lantern",
 	},
+	"mace": {
+		"name": "Mace", "power": 14.0, "windup": 0.3, "active": 0.08, "recovery": 0.22,
+		"reach": 1.6, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#999999"), "shape": "mace",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
