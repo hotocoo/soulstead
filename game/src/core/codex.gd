@@ -759,6 +759,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_cyclops": {
+		"name": "Ash Cyclops", "hp": 280.0, "damage": 32.0, "poise": 85.0, "speed": 2.2,
+		"tell": 0.28, "reach": 3.2, "color": Color("#7a7a6a"), "shape": "cyclops",
+		"size": 20, "aggro": 10.0, "posture": "balanced", "relics": 7,
+	},
+	"ash_minotaur": {
+		"name": "Ash Minotaur", "hp": 220.0, "damage": 28.0, "poise": 70.0, "speed": 3.8,
+		"tell": 0.15, "reach": 2.8, "color": Color("#8a6a4a"), "shape": "minotaur",
+		"size": 16, "aggro": 11.0, "posture": "darter", "relics": 6,
+	},
 	"ash_phoenix": {
 		"name": "Ash Phoenix", "hp": 180.0, "damage": 24.0, "poise": 50.0, "speed": 4.5,
 		"tell": 0.12, "reach": 2.5, "color": Color("#cc6633"), "shape": "phoenix",
