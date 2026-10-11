@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies retreat when low on health
+	if current_hp < max_hp * 0.3 and _target != null:
+		var away = global_position - _target.global_position
+		away.y = 0.0
+		facing = away.normalized()
+		velocity.x = facing.x * move_speed
+		velocity.z = facing.z * move_speed
 	# Balanced enemies heal nearby allies occasionally
 	if posture == "balanced" and randf() < 0.002:
 		var nearby = get_tree().get_nodes_in_group("enemies")
