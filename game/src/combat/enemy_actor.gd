@@ -188,6 +188,9 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Guardian enemies use special heavy attack occasionally
+	if posture == "guardian" and randf() < 0.005:
+		enter_state(State.WINDUP, tell * 2.0)
 	# Fast enemies flank occasionally
 	if posture == "darter" and randf() < 0.003:
 		var flank_dir = Vector3(-facing.z, 0.0, facing.x)
