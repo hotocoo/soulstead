@@ -731,6 +731,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_troll": {
+		"name": "Ash Troll", "hp": 350.0, "damage": 38.0, "poise": 110.0, "speed": 2.2,
+		"tell": 0.28, "reach": 3.8, "color": Color("#6a6a6a"), "shape": "troll",
+		"size": 24, "aggro": 10.0, "posture": "balanced", "relics": 9,
+	},
+	"ash_dragon": {
+		"name": "Ash Dragon", "hp": 600.0, "damage": 45.0, "poise": 150.0, "speed": 3.0,
+		"tell": 0.35, "reach": 4.5, "color": Color("#8a4a2a"), "shape": "dragon",
+		"size": 30, "aggro": 15.0, "posture": "balanced", "relics": 15,
+	},
 	"ash_phoenix": {
 		"name": "Ash Phoenix", "hp": 160.0, "damage": 24.0, "poise": 45.0, "speed": 4.2,
 		"tell": 0.12, "reach": 2.6, "color": Color("#ff8844"), "shape": "phoenix",
