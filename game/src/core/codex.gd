@@ -219,6 +219,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_giant": {
+		"name": "Ash Giant", "hp": 300.0, "damage": 35.0, "poise": 120.0, "speed": 1.5,
+		"tell": 0.8, "reach": 4.0, "color": Color("#7a7a7a"), "shape": "humanoid",
+		"size": 32, "aggro": 25.0, "posture": "guardian", "relics": 5,
+	},
+	"ash_goblin": {
+		"name": "Ash Goblin", "hp": 25.0, "damage": 6.0, "poise": 5.0, "speed": 4.5,
+		"tell": 0.2, "reach": 1.2, "color": Color("#6a7a6a"), "shape": "humanoid",
+		"size": 10, "aggro": 10.0, "posture": "darter", "relics": 0,
+	},
 	"ash_druid": {
 		"name": "Ash Druid", "hp": 50.0, "damage": 14.0, "poise": 15.0, "speed": 2.5,
 		"tell": 0.5, "reach": 5.0, "color": Color("#6a8a6a"), "shape": "humanoid",
