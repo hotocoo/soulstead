@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use ice attacks occasionally
+	if randf() < 0.002:
+		var ice_damage = damage * 0.9
+		TargetActor.take_hit(ice_damage, self, 0.0, false, "ice")
 	# Enemies use fire attacks occasionally
 	if randf() < 0.002:
 		var fire_damage = damage * 1.2
