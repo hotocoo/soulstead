@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"flail": {
+		"name": "Flail", "power": 14.0, "windup": 0.2, "active": 0.08, "recovery": 0.25,
+		"reach": 2.0, "arc": 0.8, "heavy_ratio": 1.1, "color": Color("#8a8a8a"), "shape": "flail",
+	},
+	"morning_star": {
+		"name": "Morning Star", "power": 12.0, "windup": 0.18, "active": 0.06, "recovery": 0.22,
+		"reach": 1.8, "arc": 0.7, "heavy_ratio": 1.0, "color": Color("#7a7a7a"), "shape": "morning_star",
+	},
 	"maul": {
 		"name": "Maul", "power": 22.0, "windup": 0.4, "active": 0.1, "recovery": 0.5,
 		"reach": 2.0, "arc": 0.6, "heavy_ratio": 1.4, "color": Color("#7a7a7a"), "shape": "maul",
