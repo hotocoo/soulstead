@@ -1087,6 +1087,7 @@ const BUILDINGS := {
 	"market": {"materials": {"timber": 10}, "name": "Market", "description": "Central trading hub for villagers."},
 	"stable": {"materials": {"timber": 8, "stone": 2}, "name": "Stable", "description": "Houses horses and livestock."},
 	"barn": {"materials": {"timber": 10}, "name": "Barn", "description": "Stores crops and equipment."},
+	"windmill": {"materials": {"timber": 12}, "name": "Windmill", "description": "Grinds grain into flour."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
