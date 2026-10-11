@@ -1678,6 +1678,8 @@ const RECIPES := {
 	"lantern": {"materials": {"iron": 1, "timber": 1}, "result": "lantern", "result_type": "weapon"},
 	"bow": {"materials": {"timber": 4, "iron": 1}, "result": "bow", "result_type": "weapon"},
 	"shortbow": {"materials": {"timber": 3}, "result": "shortbow", "result_type": "weapon"},
+	"short_sword": {"materials": {"iron": 2}, "result": "short_sword", "result_type": "weapon"},
+	"greatsword": {"materials": {"iron": 4}, "result": "greatsword", "result_type": "weapon"},
 }
 
 func weapon(id: String) -> Dictionary:
