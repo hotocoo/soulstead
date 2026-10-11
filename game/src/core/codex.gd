@@ -166,6 +166,10 @@ const WEAPONS := {
 		"name": "Shortbow", "power": 8.0, "windup": 0.3, "active": 0.05, "recovery": 0.2,
 		"reach": 10.0, "arc": 0.05, "heavy_ratio": 1.1, "color": Color("#A0522D"), "shape": "shortbow",
 	},
+	"crossbow": {
+		"name": "Crossbow", "power": 15.0, "windup": 0.6, "active": 0.05, "recovery": 0.4,
+		"reach": 18.0, "arc": 0.04, "heavy_ratio": 1.1, "color": Color("#666666"), "shape": "crossbow",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
