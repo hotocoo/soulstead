@@ -188,6 +188,9 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Guardian enemies use special heavy attack occasionally
+	if posture == "guardian" and randf() < 0.005:
+		enter_state(State.WINDUP, tell * 2.0)
 	# Ranged enemies keep distance
 	if reach > 4.0 and _target != null:
 		var dist = global_position.distance_to(_target.global_position)
