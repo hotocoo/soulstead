@@ -347,6 +347,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_troll": {
+		"name": "Ash Troll", "hp": 250.0, "damage": 30.0, "poise": 100.0, "speed": 1.8,
+		"tell": 0.5, "reach": 3.0, "color": Color("#5a6a5a"), "shape": "humanoid",
+		"size": 24, "aggro": 15.0, "posture": "guardian", "relics": 4,
+	},
+	"ash_ogre": {
+		"name": "Ash Ogre", "hp": 200.0, "damage": 25.0, "poise": 80.0, "speed": 2.0,
+		"tell": 0.45, "reach": 2.8, "color": Color("#6a7a6a"), "shape": "humanoid",
+		"size": 22, "aggro": 12.0, "posture": "balanced", "relics": 3,
+	},
 	"ash_zombie": {
 		"name": "Ash Zombie", "hp": 60.0, "damage": 8.0, "poise": 20.0, "speed": 1.5,
 		"tell": 0.5, "reach": 1.8, "color": Color("#6a7a6a"), "shape": "humanoid",
