@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies retreat when low on health
+	if hp < max_hp * 0.3 and randf() < 0.003:
+		var retreat_dir = -facing
+		global_position += retreat_dir * 2.0
 	# Guardian enemies use special heavy attack occasionally
 	if posture == "guardian" and randf() < 0.002:
 		var heavy_damage = damage * 1.5
