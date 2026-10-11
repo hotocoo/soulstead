@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"maul": {
+		"name": "Maul", "power": 22.0, "windup": 0.4, "active": 0.1, "recovery": 0.5,
+		"reach": 2.0, "arc": 0.6, "heavy_ratio": 1.4, "color": Color("#7a7a7a"), "shape": "maul",
+	},
+	"greataxe": {
+		"name": "Greataxe", "power": 20.0, "windup": 0.35, "active": 0.08, "recovery": 0.45,
+		"reach": 2.2, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#8a7a6a"), "shape": "greataxe",
+	},
 	"dagger": {
 		"name": "Dagger", "power": 5.0, "windup": 0.1, "active": 0.03, "recovery": 0.1,
 		"reach": 1.2, "arc": 0.4, "heavy_ratio": 0.9, "color": Color("#7a7a7a"), "shape": "dagger",
