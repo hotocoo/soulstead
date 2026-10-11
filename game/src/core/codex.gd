@@ -819,6 +819,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_golem": {
+		"name": "Ash Golem", "hp": 300.0, "damage": 30.0, "poise": 100.0, "speed": 1.5,
+		"tell": 0.3, "reach": 2.5, "color": Color("#888888"), "shape": "golem",
+		"size": 20, "aggro": 6.0, "posture": "guardian", "relics": 8,
+	},
 	"ash_gargoyle": {
 		"name": "Ash Gargoyle", "hp": 100.0, "damage": 12.0, "poise": 30.0, "speed": 4.0,
 		"tell": 0.15, "reach": 2.0, "color": Color("#777777"), "shape": "gargoyle",
