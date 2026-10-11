@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"shield": {
+		"name": "Shield", "power": 4.0, "windup": 0.2, "active": 0.08, "recovery": 0.3,
+		"reach": 1.2, "arc": 0.4, "heavy_ratio": 1.1, "color": Color("#8a7a6a"), "shape": "shield",
+	},
+	"buckler": {
+		"name": "Buckler", "power": 3.0, "windup": 0.15, "active": 0.06, "recovery": 0.2,
+		"reach": 1.0, "arc": 0.3, "heavy_ratio": 1.0, "color": Color("#9a8a7a"), "shape": "buckler",
+	},
 	"crossbow": {
 		"name": "Crossbow", "power": 14.0, "windup": 0.5, "active": 0.05, "recovery": 0.8,
 		"reach": 10.0, "arc": 0.1, "heavy_ratio": 1.0, "color": Color("#7a6a5a"), "shape": "crossbow",
