@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use ranged attacks occasionally
+	if randf() < 0.002:
+		var ranged_damage = damage * 0.8
+		TargetActor.take_hit(ranged_damage, self, 0.0, false, "ranged")
 	# Enemies use dark attacks occasionally
 	if randf() < 0.002:
 		var dark_damage = damage * 1.0
