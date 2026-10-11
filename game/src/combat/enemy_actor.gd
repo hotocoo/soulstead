@@ -188,6 +188,12 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Balanced enemies heal nearby allies occasionally
+	if posture == "balanced" and randf() < 0.002:
+		var nearby = get_tree().get_nodes_in_group("enemies")
+		for enemy in nearby:
+			if enemy != self and enemy.global_position.distance_to(global_position) < 5.0 and enemy.current_hp < enemy.max_hp:
+				enemy.current_hp = min(enemy.current_hp + enemy.max_hp * 0.1, enemy.max_hp)
 	# Guardian enemies use special heavy attack occasionally
 	if posture == "guardian" and _target != null and randf() < 0.005:
 		enter_state(State.WINDUP, tell * 2.0)
