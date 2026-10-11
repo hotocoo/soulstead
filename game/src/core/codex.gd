@@ -743,6 +743,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_basilisk": {
+		"name": "Ash Basilisk", "hp": 140.0, "damage": 20.0, "poise": 40.0, "speed": 2.5,
+		"tell": 0.18, "reach": 2.4, "color": Color("#7a8a7a"), "shape": "basilisk",
+		"size": 12, "aggro": 10.0, "posture": "balanced", "relics": 4,
+	},
+	"ash_sphinx": {
+		"name": "Ash Sphinx", "hp": 180.0, "damage": 22.0, "poise": 50.0, "speed": 2.8,
+		"tell": 0.15, "reach": 2.6, "color": Color("#8a8a7a"), "shape": "sphinx",
+		"size": 14, "aggro": 11.0, "posture": "balanced", "relics": 5,
+	},
 	"ash_chimera": {
 		"name": "Ash Chimera", "hp": 260.0, "damage": 30.0, "poise": 75.0, "speed": 3.5,
 		"tell": 0.16, "reach": 3.0, "color": Color("#8a6a4a"), "shape": "chimera",
