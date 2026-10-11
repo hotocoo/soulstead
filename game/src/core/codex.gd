@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"lance": {
+		"name": "Lance", "power": 18.0, "windup": 0.25, "active": 0.08, "recovery": 0.5,
+		"reach": 6.0, "arc": 0.2, "heavy_ratio": 1.4, "color": Color("#6a5a4a"), "shape": "lance",
+	},
+	"pike": {
+		"name": "Pike", "power": 16.0, "windup": 0.3, "active": 0.08, "recovery": 0.6,
+		"reach": 7.0, "arc": 0.2, "heavy_ratio": 1.3, "color": Color("#5a4a3a"), "shape": "pike",
+	},
 	"scythe": {
 		"name": "Scythe", "power": 16.0, "windup": 0.3, "active": 0.1, "recovery": 0.5,
 		"reach": 2.5, "arc": 0.5, "heavy_ratio": 1.4, "color": Color("#8a8a8a"), "shape": "scythe",
