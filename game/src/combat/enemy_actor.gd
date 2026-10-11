@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use shadow attacks occasionally
+	if randf() < 0.002:
+		var shadow_damage = damage * 0.7
+		TargetActor.take_hit(shadow_damage, self, 0.0, false, "shadow")
 	# Enemies use earth attacks occasionally
 	if randf() < 0.002:
 		var earth_damage = damage * 0.9
