@@ -150,6 +150,10 @@ const WEAPONS := {
 		"name": "Throwing Knife", "power": 6.0, "windup": 0.2, "active": 0.02, "recovery": 0.2,
 		"reach": 15.0, "arc": 0.03, "heavy_ratio": 1.0, "color": Color("#aaaaaa"), "shape": "knife",
 	},
+	"torch": {
+		"name": "Torch", "power": 5.0, "windup": 0.15, "active": 0.05, "recovery": 0.15,
+		"reach": 1.5, "arc": 0.2, "heavy_ratio": 1.0, "color": Color("#ff6600"), "shape": "torch",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
