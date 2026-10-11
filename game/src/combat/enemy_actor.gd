@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies call for help when low on health
+	if hp < max_hp * 0.4 and randf() < 0.001:
+		var help_damage = damage * 1.2
+		TargetActor.take_hit(help_damage, self, 0.0, false, "help")
 	# Guardian enemies block with shield
 	if posture == "guardian" and randf() < 0.003:
 		var blocked_damage = damage * 0.5
