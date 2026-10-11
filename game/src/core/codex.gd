@@ -539,6 +539,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_samurai": {
+		"name": "Ash Samurai", "hp": 80.0, "damage": 16.0, "poise": 35.0, "speed": 2.8,
+		"tell": 0.15, "reach": 2.0, "color": Color("#8a7a6a"), "shape": "humanoid",
+		"size": 13, "aggro": 10.0, "posture": "darter", "relics": 3,
+	},
+	"ash_ninja": {
+		"name": "Ash Ninja", "hp": 40.0, "damage": 10.0, "poise": 12.0, "speed": 3.5,
+		"tell": 0.1, "reach": 1.5, "color": Color("#6a6a6a"), "shape": "humanoid",
+		"size": 11, "aggro": 9.0, "posture": "darter", "relics": 2,
+	},
 	"ash_priest": {
 		"name": "Ash Priest", "hp": 55.0, "damage": 10.0, "poise": 20.0, "speed": 2.5,
 		"tell": 0.25, "reach": 5.0, "color": Color("#9a8a7a"), "shape": "humanoid",
