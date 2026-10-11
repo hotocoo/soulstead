@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"warhammer": {
+		"name": "Warhammer", "power": 16.0, "windup": 0.35, "active": 0.1, "recovery": 0.5,
+		"reach": 1.8, "arc": 0.4, "heavy_ratio": 1.3, "color": Color("#5a5a5a"), "shape": "warhammer",
+	},
+	"morning_star": {
+		"name": "Morning Star", "power": 13.0, "windup": 0.28, "active": 0.08, "recovery": 0.42,
+		"reach": 1.7, "arc": 0.4, "heavy_ratio": 1.2, "color": Color("#7a7a7a"), "shape": "morning_star",
+	},
 	"mace": {
 		"name": "Mace", "power": 12.0, "windup": 0.25, "active": 0.08, "recovery": 0.4,
 		"reach": 1.6, "arc": 0.4, "heavy_ratio": 1.2, "color": Color("#6a6a6a"), "shape": "mace",
