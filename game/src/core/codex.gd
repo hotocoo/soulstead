@@ -739,6 +739,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_chimera": {
+		"name": "Ash Chimera", "hp": 260.0, "damage": 30.0, "poise": 75.0, "speed": 3.5,
+		"tell": 0.16, "reach": 3.0, "color": Color("#8a6a4a"), "shape": "chimera",
+		"size": 18, "aggro": 12.0, "posture": "darter", "relics": 6,
+	},
+	"ash_harpy": {
+		"name": "Ash Harpy", "hp": 100.0, "damage": 16.0, "poise": 25.0, "speed": 4.8,
+		"tell": 0.1, "reach": 2.0, "color": Color("#9a9a9a"), "shape": "harpy",
+		"size": 10, "aggro": 13.0, "posture": "darter", "relics": 2,
+	},
 	"ash_cyclops": {
 		"name": "Ash Cyclops", "hp": 280.0, "damage": 32.0, "poise": 85.0, "speed": 2.0,
 		"tell": 0.26, "reach": 3.2, "color": Color("#7a7a6a"), "shape": "cyclops",
