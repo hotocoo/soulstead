@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"halberd": {
+		"name": "Halberd", "power": 18.0, "windup": 0.45, "active": 0.12, "recovery": 0.35,
+		"reach": 3.5, "arc": 0.9, "heavy_ratio": 1.6, "color": Color("#8a8a8a"), "shape": "halberd",
+	},
+	"glaive": {
+		"name": "Glaive", "power": 15.0, "windup": 0.4, "active": 0.1, "recovery": 0.3,
+		"reach": 3.0, "arc": 0.8, "heavy_ratio": 1.4, "color": Color("#7a7a7a"), "shape": "glaive",
+	},
 	"warhammer": {
 		"name": "Warhammer", "power": 16.0, "windup": 0.4, "active": 0.1, "recovery": 0.3,
 		"reach": 2.2, "arc": 0.7, "heavy_ratio": 1.5, "color": Color("#8a8a8a"), "shape": "warhammer",
