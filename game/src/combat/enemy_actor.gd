@@ -188,6 +188,13 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Ranged enemies keep distance
+	if posture == "ranged" and _target != null and _target.global_position.distance_to(global_position) < reach * 0.6:
+		var offset = global_position - _target.global_position
+		offset.y = 0.0
+		facing = offset.normalized()
+		velocity.x = facing.x * move_speed
+		velocity.z = facing.z * move_speed
 	# Coordinate with nearby enemies
 	if _target == null:
 		var nearby = get_tree().get_nodes_in_group("enemies")
