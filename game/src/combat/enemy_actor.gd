@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Ranged enemies attack from distance
+	if posture == "balanced" and randf() < 0.003:
+		var range_damage = damage * 0.8
+		TargetActor.take_hit(range_damage, self, 0.0, false, "ranged")
 	# Enemies retreat when low on health
 	if hp < max_hp * 0.3 and randf() < 0.003:
 		var retreat_dir = -facing
