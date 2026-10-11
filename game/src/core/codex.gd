@@ -174,6 +174,10 @@ const WEAPONS := {
 		"name": "Slingshot", "power": 5.0, "windup": 0.2, "active": 0.02, "recovery": 0.2,
 		"reach": 8.0, "arc": 0.03, "heavy_ratio": 1.0, "color": Color("#8B4513"), "shape": "slingshot",
 	},
+	"boomerang": {
+		"name": "Boomerang", "power": 6.0, "windup": 0.3, "active": 0.02, "recovery": 0.4,
+		"reach": 6.0, "arc": 0.03, "heavy_ratio": 1.0, "color": Color("#A0522D"), "shape": "boomerang",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
