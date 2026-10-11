@@ -331,6 +331,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_ghost": {
+		"name": "Ash Ghost", "hp": 40.0, "damage": 10.0, "poise": 10.0, "speed": 2.5,
+		"tell": 0.3, "reach": 2.0, "color": Color("#9a9aba"), "shape": "humanoid",
+		"size": 12, "aggro": 12.0, "posture": "darter", "relics": 1,
+	},
+	"ash_spirit": {
+		"name": "Ash Spirit", "hp": 30.0, "damage": 8.0, "poise": 5.0, "speed": 3.0,
+		"tell": 0.25, "reach": 1.8, "color": Color("#8a8aaa"), "shape": "humanoid",
+		"size": 10, "aggro": 10.0, "posture": "darter", "relics": 1,
+	},
 	"ash_dwarf": {
 		"name": "Ash Dwarf", "hp": 70.0, "damage": 12.0, "poise": 30.0, "speed": 1.8,
 		"tell": 0.4, "reach": 1.8, "color": Color("#8a7a6a"), "shape": "humanoid",
