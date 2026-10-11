@@ -795,6 +795,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_troll": {
+		"name": "Ash Troll", "hp": 240.0, "damage": 28.0, "poise": 80.0, "speed": 2.0,
+		"tell": 0.25, "reach": 3.0, "color": Color("#6a7a6a"), "shape": "troll",
+		"size": 18, "aggro": 8.0, "posture": "balanced", "relics": 6,
+	},
 	"ash_minotaur": {
 		"name": "Ash Minotaur", "hp": 260.0, "damage": 30.0, "poise": 85.0, "speed": 2.5,
 		"tell": 0.2, "reach": 3.0, "color": Color("#7a6a5a"), "shape": "minotaur",
