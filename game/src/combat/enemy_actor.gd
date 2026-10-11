@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Guardian enemies block with shield
+	if posture == "guardian" and randf() < 0.003:
+		var blocked_damage = damage * 0.5
+		TargetActor.take_hit(blocked_damage, self, 0.0, false, "blocked")
 	# Enemies heal themselves when low on health
 	if hp < max_hp * 0.5 and randf() < 0.002:
 		hp = min(max_hp, hp + max_hp * 0.1)
