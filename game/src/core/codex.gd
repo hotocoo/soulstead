@@ -134,6 +134,10 @@ const WEAPONS := {
 		"name": "Broadsword", "power": 12.0, "windup": 0.25, "active": 0.08, "recovery": 0.2,
 		"reach": 1.4, "arc": 0.7, "heavy_ratio": 1.2, "color": Color("#cccccc"), "shape": "broadsword",
 	},
+	"greatsword": {
+		"name": "Greatsword", "power": 20.0, "windup": 0.4, "active": 0.1, "recovery": 0.35,
+		"reach": 1.8, "arc": 0.8, "heavy_ratio": 1.5, "color": Color("#dddddd"), "shape": "greatsword",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
