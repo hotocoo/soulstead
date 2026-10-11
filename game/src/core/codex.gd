@@ -159,6 +159,10 @@ const WEAPONS := {
 		"reach": 1.5, "arc": 0.2, "heavy_ratio": 1.0, "color": Color("#ffaa00"), "shape": "lantern",
 	},
 	"bow": {
+		"name": "Bow", "power": 12.0, "windup": 0.4, "active": 0.05, "recovery": 0.3,
+		"reach": 15.0, "arc": 0.05, "heavy_ratio": 1.1, "color": Color("#8B4513"), "shape": "bow",
+	},
+	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
 	},
