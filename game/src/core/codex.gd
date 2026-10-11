@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"fan": {
+		"name": "Fan", "power": 5.0, "windup": 0.1, "active": 0.05, "recovery": 0.15,
+		"reach": 1.5, "arc": 0.4, "heavy_ratio": 1.1, "color": Color("#9a8a7a"), "shape": "fan",
+	},
+	"tonfa": {
+		"name": "Tonfa", "power": 9.0, "windup": 0.18, "active": 0.08, "recovery": 0.25,
+		"reach": 1.5, "arc": 0.5, "heavy_ratio": 1.2, "color": Color("#8a7a6a"), "shape": "tonfa",
+	},
 	"whip": {
 		"name": "Whip", "power": 6.0, "windup": 0.15, "active": 0.05, "recovery": 0.25,
 		"reach": 3.0, "arc": 0.3, "heavy_ratio": 1.2, "color": Color("#8a7a6a"), "shape": "whip",
