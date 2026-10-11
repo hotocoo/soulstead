@@ -403,6 +403,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_hunter": {
+		"name": "Ash Hunter", "hp": 50.0, "damage": 12.0, "poise": 15.0, "speed": 2.5,
+		"tell": 0.3, "reach": 10.0, "color": Color("#7a8a7a"), "shape": "humanoid",
+		"size": 12, "aggro": 15.0, "posture": "balanced", "relics": 2,
+	},
+	"ash_tracker": {
+		"name": "Ash Tracker", "hp": 60.0, "damage": 14.0, "poise": 20.0, "speed": 2.5,
+		"tell": 0.3, "reach": 10.0, "color": Color("#8a9a8a"), "shape": "humanoid",
+		"size": 13, "aggro": 18.0, "posture": "balanced", "relics": 2,
+	},
 	"ash_warrior": {
 		"name": "Ash Warrior", "hp": 120.0, "damage": 18.0, "poise": 60.0, "speed": 2.5,
 		"tell": 0.35, "reach": 2.2, "color": Color("#7a6a5a"), "shape": "humanoid",
