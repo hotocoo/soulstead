@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use poison attacks occasionally
+	if randf() < 0.002:
+		var poison_damage = damage * 0.5
+		TargetActor.take_hit(poison_damage, self, 0.0, false, "poison")
 	# Enemies use ranged attacks occasionally
 	if randf() < 0.002:
 		var ranged_damage = damage * 0.8
