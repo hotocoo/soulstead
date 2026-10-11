@@ -555,6 +555,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_goblin": {
+		"name": "Ash Goblin", "hp": 30.0, "damage": 8.0, "poise": 10.0, "speed": 3.5,
+		"tell": 0.1, "reach": 1.2, "color": Color("#6a8a6a"), "shape": "humanoid",
+		"size": 10, "aggro": 8.0, "posture": "darter", "relics": 1,
+	},
+	"ash_orc": {
+		"name": "Ash Orc", "hp": 100.0, "damage": 18.0, "poise": 40.0, "speed": 2.5,
+		"tell": 0.2, "reach": 2.0, "color": Color("#7a9a7a"), "shape": "humanoid",
+		"size": 14, "aggro": 9.0, "posture": "balanced", "relics": 3,
+	},
 	"ash_knight": {
 		"name": "Ash Knight", "hp": 160.0, "damage": 22.0, "poise": 85.0, "speed": 2.2,
 		"tell": 0.25, "reach": 2.0, "color": Color("#8a8a8a"), "shape": "humanoid",
