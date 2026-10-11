@@ -122,6 +122,10 @@ const WEAPONS := {
 		"name": "Glaive", "power": 17.0, "windup": 0.35, "active": 0.1, "recovery": 0.3,
 		"reach": 2.0, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#aaaaaa"), "shape": "glaive",
 	},
+	"spear": {
+		"name": "Spear", "power": 14.0, "windup": 0.25, "active": 0.08, "recovery": 0.2,
+		"reach": 2.5, "arc": 0.3, "heavy_ratio": 1.2, "color": Color("#999999"), "shape": "spear",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
