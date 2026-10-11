@@ -635,6 +635,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_minotaur": {
+		"name": "Ash Minotaur", "hp": 200.0, "damage": 25.0, "poise": 70.0, "speed": 2.5,
+		"tell": 0.2, "reach": 2.5, "color": Color("#7a6a7a"), "shape": "minotaur",
+		"size": 18, "aggro": 11.0, "posture": "balanced", "relics": 6,
+	},
+	"ash_chimera": {
+		"name": "Ash Chimera", "hp": 220.0, "damage": 28.0, "poise": 65.0, "speed": 2.8,
+		"tell": 0.18, "reach": 2.8, "color": Color("#8a7a6a"), "shape": "chimera",
+		"size": 20, "aggro": 12.0, "posture": "darter", "relics": 6,
+	},
 	"ash_centaur": {
 		"name": "Ash Centaur", "hp": 130.0, "damage": 18.0, "poise": 40.0, "speed": 3.8,
 		"tell": 0.15, "reach": 2.5, "color": Color("#7a7a7a"), "shape": "centaur",
