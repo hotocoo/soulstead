@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"boomerang": {
+		"name": "Boomerang", "power": 8.0, "windup": 0.25, "active": 0.08, "recovery": 0.2,
+		"reach": 6.0, "arc": 0.5, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "boomerang",
+	},
+	"throwing_knife": {
+		"name": "Throwing Knife", "power": 7.0, "windup": 0.15, "active": 0.05, "recovery": 0.15,
+		"reach": 5.0, "arc": 0.3, "heavy_ratio": 1.0, "color": Color("#7a7a7a"), "shape": "throwing_knife",
+	},
 	"crossbow": {
 		"name": "Crossbow", "power": 10.0, "windup": 0.4, "active": 0.05, "recovery": 0.3,
 		"reach": 10.0, "arc": 0.3, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "crossbow",
