@@ -767,6 +767,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_sphinx": {
+		"name": "Ash Sphinx", "hp": 180.0, "damage": 22.0, "poise": 50.0, "speed": 2.8,
+		"tell": 0.15, "reach": 2.6, "color": Color("#8a8a7a"), "shape": "sphinx",
+		"size": 14, "aggro": 11.0, "posture": "balanced", "relics": 5,
+	},
+	"ash_griffin": {
+		"name": "Ash Griffin", "hp": 150.0, "damage": 22.0, "poise": 45.0, "speed": 4.0,
+		"tell": 0.12, "reach": 2.5, "color": Color("#8a7a5a"), "shape": "griffin",
+		"size": 14, "aggro": 12.0, "posture": "darter", "relics": 4,
+	},
 	"ash_harpy": {
 		"name": "Ash Harpy", "hp": 100.0, "damage": 16.0, "poise": 25.0, "speed": 4.8,
 		"tell": 0.1, "reach": 2.0, "color": Color("#9a9a9a"), "shape": "harpy",
