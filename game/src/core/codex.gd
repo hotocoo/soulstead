@@ -42,6 +42,14 @@ const WEAPONS := {
 		"name": "Greatsword", "power": 18.0, "windup": 0.45, "active": 0.12, "recovery": 0.35,
 		"reach": 2.8, "arc": 1.0, "heavy_ratio": 1.5, "color": Color("#999999"), "shape": "greatsword",
 	},
+	"broadsword": {
+		"name": "Broadsword", "power": 14.0, "windup": 0.35, "active": 0.1, "recovery": 0.28,
+		"reach": 2.4, "arc": 0.9, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "broadsword",
+	},
+	"warhammer": {
+		"name": "Warhammer", "power": 16.0, "windup": 0.4, "active": 0.1, "recovery": 0.32,
+		"reach": 2.2, "arc": 0.7, "heavy_ratio": 1.6, "color": Color("#888888"), "shape": "warhammer",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
