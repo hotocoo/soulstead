@@ -188,6 +188,9 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Guardian enemies use special heavy attack occasionally
+	if posture == "guardian" and _target != null and randf() < 0.005:
+		enter_state(State.WINDUP, tell * 2.0)
 	# Fast enemies try to flank
 	if posture == "darter" and _target != null:
 		var to_target = _target.global_position - global_position
