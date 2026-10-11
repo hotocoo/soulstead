@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Fast enemies flank occasionally
+	if posture == "darter" and randf() < 0.003:
+		var flank_dir = Vector3(-facing.z, 0.0, facing.x)
+		global_position += flank_dir * 2.0
 	# Ranged enemies fire occasionally
 	if reach > 4.0 and _target != null and randf() < 0.01:
 		var dist = global_position.distance_to(_target.global_position)
