@@ -188,6 +188,17 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Fast enemies try to flank
+	if posture == "darter" and _target != null:
+		var to_target = _target.global_position - global_position
+		to_target.y = 0.0
+		var perp = Vector3(-to_target.z, 0.0, to_target.x).normalized()
+		var flank_target = _target.global_position + perp * 2.0
+		var to_flank = flank_target - global_position
+		to_flank.y = 0.0
+		facing = to_flank.normalized()
+		velocity.x = facing.x * move_speed
+		velocity.z = facing.z * move_speed
 	# Ranged enemies keep distance
 	if posture == "ranged" and _target != null and _target.global_position.distance_to(global_position) < reach * 0.6:
 		var offset = global_position - _target.global_position
