@@ -82,6 +82,14 @@ const WEAPONS := {
 		"name": "Crossbow", "power": 14.0, "windup": 0.5, "active": 0.05, "recovery": 0.3,
 		"reach": 15.0, "arc": 0.2, "heavy_ratio": 1.2, "color": Color("#888888"), "shape": "crossbow",
 	},
+	"slingshot": {
+		"name": "Slingshot", "power": 6.0, "windup": 0.2, "active": 0.03, "recovery": 0.15,
+		"reach": 10.0, "arc": 0.1, "heavy_ratio": 1.0, "color": Color("#886644"), "shape": "slingshot",
+	},
+	"boomerang": {
+		"name": "Boomerang", "power": 8.0, "windup": 0.25, "active": 0.05, "recovery": 0.2,
+		"reach": 8.0, "arc": 0.3, "heavy_ratio": 1.1, "color": Color("#997755"), "shape": "boomerang",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
