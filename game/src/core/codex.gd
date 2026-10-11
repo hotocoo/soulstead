@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"katana": {
+		"name": "Katana", "power": 10.0, "windup": 0.15, "active": 0.08, "recovery": 0.3,
+		"reach": 1.8, "arc": 0.5, "heavy_ratio": 1.3, "color": Color("#8a8a8a"), "shape": "katana",
+	},
+	"greatsword": {
+		"name": "Greatsword", "power": 20.0, "windup": 0.35, "active": 0.15, "recovery": 0.65,
+		"reach": 2.5, "arc": 0.9, "heavy_ratio": 1.6, "color": Color("#6a6a6a"), "shape": "greatsword",
+	},
 	"broadsword": {
 		"name": "Broadsword", "power": 13.0, "windup": 0.2, "active": 0.1, "recovery": 0.4,
 		"reach": 2.0, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#8a8a8a"), "shape": "broadsword",
