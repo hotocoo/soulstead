@@ -106,6 +106,10 @@ const WEAPONS := {
 		"name": "Mace", "power": 14.0, "windup": 0.3, "active": 0.08, "recovery": 0.22,
 		"reach": 1.6, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#999999"), "shape": "mace",
 	},
+	"warhammer": {
+		"name": "War Hammer", "power": 22.0, "windup": 0.45, "active": 0.1, "recovery": 0.3,
+		"reach": 1.8, "arc": 0.5, "heavy_ratio": 1.5, "color": Color("#888888"), "shape": "warhammer",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
