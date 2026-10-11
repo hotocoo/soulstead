@@ -787,6 +787,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_cyclops": {
+		"name": "Ash Cyclops", "hp": 280.0, "damage": 32.0, "poise": 95.0, "speed": 2.0,
+		"tell": 0.25, "reach": 3.5, "color": Color("#7a7a6a"), "shape": "cyclops",
+		"size": 20, "aggro": 8.0, "posture": "balanced", "relics": 8,
+	},
 	"ash_golem": {
 		"name": "Ash Golem", "hp": 320.0, "damage": 34.0, "poise": 110.0, "speed": 1.5,
 		"tell": 0.35, "reach": 3.5, "color": Color("#6a6a6a"), "shape": "golem",
