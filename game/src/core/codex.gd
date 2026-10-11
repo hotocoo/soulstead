@@ -34,6 +34,14 @@ const WEAPONS := {
 		"name": "Long Spear", "power": 14.0, "windup": 0.25, "active": 0.15, "recovery": 0.55,
 		"reach": 5.5, "arc": 0.5, "heavy_ratio": 1.6, "color": Color("#9e8c68"), "shape": "spear",
 	},
+	"katana": {
+		"name": "Katana", "power": 10.0, "windup": 0.15, "active": 0.05, "recovery": 0.2,
+		"reach": 1.8, "arc": 0.6, "heavy_ratio": 1.1, "color": Color("#9a9a9a"), "shape": "katana",
+	},
+	"wakizashi": {
+		"name": "Wakizashi", "power": 7.0, "windup": 0.12, "active": 0.04, "recovery": 0.15,
+		"reach": 1.2, "arc": 0.5, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "wakizashi",
+	},
 	"bow": {
 		"name": "Bow", "power": 10.0, "windup": 0.4, "active": 0.05, "recovery": 0.4,
 		"reach": 8.0, "arc": 0.2, "heavy_ratio": 1.0, "color": Color("#7a6a5a"), "shape": "bow",
