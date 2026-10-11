@@ -110,6 +110,10 @@ const WEAPONS := {
 		"name": "War Hammer", "power": 22.0, "windup": 0.45, "active": 0.1, "recovery": 0.3,
 		"reach": 1.8, "arc": 0.5, "heavy_ratio": 1.5, "color": Color("#888888"), "shape": "warhammer",
 	},
+	"flail": {
+		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
+		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
