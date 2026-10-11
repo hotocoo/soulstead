@@ -1030,6 +1030,7 @@ const BUILDINGS := {
 	"inn": {"materials": {"timber": 15}, "name": "Inn", "description": "Provides lodging for travelers."},
 	"library": {"materials": {"timber": 12, "stone": 5}, "name": "Library", "description": "Stores knowledge and scrolls."},
 	"bathhouse": {"materials": {"stone": 8}, "name": "Bathhouse", "description": "Provides bathing facilities for villagers."},
+	"market": {"materials": {"timber": 10}, "name": "Market", "description": "Central trading hub for villagers."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
