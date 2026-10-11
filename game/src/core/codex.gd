@@ -118,6 +118,10 @@ const WEAPONS := {
 		"name": "Halberd", "power": 18.0, "windup": 0.4, "active": 0.1, "recovery": 0.35,
 		"reach": 2.2, "arc": 0.5, "heavy_ratio": 1.4, "color": Color("#999999"), "shape": "halberd",
 	},
+	"glaive": {
+		"name": "Glaive", "power": 17.0, "windup": 0.35, "active": 0.1, "recovery": 0.3,
+		"reach": 2.0, "arc": 0.6, "heavy_ratio": 1.3, "color": Color("#aaaaaa"), "shape": "glaive",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
