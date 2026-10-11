@@ -476,6 +476,8 @@ const BUILDINGS := {
 	"brewery": {"materials": {"timber": 8, "iron": 2}, "name": "Brewery", "description": "Brews ale for villagers."},
 	"library": {"materials": {"iron": 3, "timber": 8}, "name": "Library", "description": "Teaches villagers new skills."},
 	"market": {"materials": {"timber": 10, "iron": 2}, "name": "Market", "description": "Increases trade income."},
+	"temple": {"materials": {"iron": 6, "timber": 12}, "name": "Temple", "description": "Provides divine blessings."},
+	"academy": {"materials": {"iron": 4, "timber": 10}, "name": "Academy", "description": "Trains skilled villagers."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
