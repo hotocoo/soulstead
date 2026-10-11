@@ -571,6 +571,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_wolf": {
+		"name": "Ash Wolf", "hp": 50.0, "damage": 12.0, "poise": 15.0, "speed": 3.8,
+		"tell": 0.1, "reach": 1.3, "color": Color("#8a8a8a"), "shape": "quadruped",
+		"size": 11, "aggro": 10.0, "posture": "darter", "relics": 2,
+	},
+	"ash_bear": {
+		"name": "Ash Bear", "hp": 140.0, "damage": 20.0, "poise": 50.0, "speed": 2.2,
+		"tell": 0.25, "reach": 1.8, "color": Color("#7a6a5a"), "shape": "quadruped",
+		"size": 16, "aggro": 9.0, "posture": "balanced", "relics": 4,
+	},
 	"ash_skeleton": {
 		"name": "Ash Skeleton", "hp": 40.0, "damage": 10.0, "poise": 15.0, "speed": 2.8,
 		"tell": 0.15, "reach": 1.5, "color": Color("#8a8a8a"), "shape": "humanoid",
