@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use void attacks occasionally
+	if randf() < 0.002:
+		var void_damage = damage * 0.8
+		TargetActor.take_hit(void_damage, self, 0.0, false, "void")
 	# Enemies use star attacks occasionally
 	if randf() < 0.002:
 		var star_damage = damage * 1.2
