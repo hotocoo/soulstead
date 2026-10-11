@@ -188,6 +188,11 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies call for help when taking damage
+	if _target != null and randf() < 0.003:
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			if enemy != self and enemy.global_position.distance_to(global_position) < 10.0:
+				enemy._target = _target
 	# Balanced enemies heal nearby allies
 	if posture == "balanced" and randf() < 0.002:
 		for enemy in get_tree().get_nodes_in_group("enemies"):
