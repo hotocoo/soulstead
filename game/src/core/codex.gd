@@ -134,6 +134,10 @@ const WEAPONS := {
 		"name": "Trident", "power": 17.0, "windup": 0.3, "active": 0.08, "recovery": 0.22,
 		"reach": 2.2, "arc": 0.4, "heavy_ratio": 1.4, "color": Color("#999999"), "shape": "trident",
 	},
+	"crossbow": {
+		"name": "Crossbow", "power": 14.0, "windup": 0.5, "active": 0.05, "recovery": 0.4,
+		"reach": 8.0, "arc": 0.1, "heavy_ratio": 1.2, "color": Color("#777777"), "shape": "crossbow",
+	},
 	"bow": {
 		"name": "Bow", "power": 12.0, "windup": 0.35, "active": 0.05, "recovery": 0.25,
 		"reach": 12.0, "arc": 0.4, "heavy_ratio": 1.0, "color": Color("#8a8a8a"), "shape": "bow",
