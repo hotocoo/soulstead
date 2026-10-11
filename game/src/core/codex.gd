@@ -451,6 +451,16 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_barbarian": {
+		"name": "Ash Barbarian", "hp": 100.0, "damage": 20.0, "poise": 50.0, "speed": 2.8,
+		"tell": 0.3, "reach": 2.2, "color": Color("#7a6a5a"), "shape": "humanoid",
+		"size": 14, "aggro": 10.0, "posture": "balanced", "relics": 2,
+	},
+	"ash_berserker": {
+		"name": "Ash Berserker", "hp": 120.0, "damage": 22.0, "poise": 60.0, "speed": 3.0,
+		"tell": 0.3, "reach": 2.2, "color": Color("#8a7a6a"), "shape": "humanoid",
+		"size": 15, "aggro": 12.0, "posture": "balanced", "relics": 3,
+	},
 	"ash_rogue": {
 		"name": "Ash Rogue", "hp": 35.0, "damage": 9.0, "poise": 10.0, "speed": 3.0,
 		"tell": 0.2, "reach": 1.5, "color": Color("#6a7a6a"), "shape": "humanoid",
