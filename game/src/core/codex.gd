@@ -1524,6 +1524,7 @@ const BUILDINGS := {
 	"greenhouse": {"materials": {"timber": 10, "stone": 4}, "name": "Greenhouse", "description": "Grows exotic plants year-round."},
 	"windmill": {"materials": {"timber": 12, "stone": 6}, "name": "Windmill", "description": "Grinds grain into flour."},
 	"quarry": {"materials": {"stone": 15}, "name": "Quarry", "description": "Extracts stone for building."},
+	"fishery": {"materials": {"timber": 8}, "name": "Fishery", "description": "Provides fish for villagers."},
 	"farm": {"materials": {"timber": 6}, "name": "Farm", "description": "Produces food for villagers."},
 	"barracks": {"materials": {"iron": 4, "timber": 8}, "name": "Barracks", "description": "Trains more companions."},
 	"market": {"materials": {"timber": 10, "iron": 3}, "name": "Market", "description": "Better trade prices."},
