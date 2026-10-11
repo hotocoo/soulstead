@@ -188,6 +188,9 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies heal themselves when low on health
+	if hp < max_hp * 0.5 and randf() < 0.002:
+		hp = min(max_hp, hp + max_hp * 0.1)
 	# Ranged enemies attack from distance
 	if posture == "balanced" and randf() < 0.003:
 		var range_damage = damage * 0.8
