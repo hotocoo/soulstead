@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use crystal attacks occasionally
+	if randf() < 0.002:
+		var crystal_damage = damage * 1.0
+		TargetActor.take_hit(crystal_damage, self, 0.0, false, "crystal")
 	# Enemies use spirit attacks occasionally
 	if randf() < 0.002:
 		var spirit_damage = damage * 0.6
