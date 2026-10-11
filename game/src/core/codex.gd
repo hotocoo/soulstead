@@ -114,6 +114,10 @@ const WEAPONS := {
 		"name": "Morning Star", "power": 15.0, "windup": 0.3, "active": 0.08, "recovery": 0.2,
 		"reach": 1.5, "arc": 0.5, "heavy_ratio": 1.2, "color": Color("#bbbbbb"), "shape": "morning_star",
 	},
+	"halberd": {
+		"name": "Halberd", "power": 18.0, "windup": 0.4, "active": 0.1, "recovery": 0.35,
+		"reach": 2.2, "arc": 0.5, "heavy_ratio": 1.4, "color": Color("#999999"), "shape": "halberd",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
