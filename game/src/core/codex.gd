@@ -783,6 +783,11 @@ const ENEMIES := {
 		"tell": 0.5, "reach": 1.5, "color": Color("#8a9a8a"), "shape": "humanoid",
 		"size": 12, "aggro": 15.0, "posture": "dancer", "relics": 1,
 	},
+	"ash_golem": {
+		"name": "Ash Golem", "hp": 320.0, "damage": 34.0, "poise": 110.0, "speed": 1.5,
+		"tell": 0.35, "reach": 3.5, "color": Color("#6a6a6a"), "shape": "golem",
+		"size": 22, "aggro": 8.0, "posture": "balanced", "relics": 9,
+	},
 	"ash_chimera": {
 		"name": "Ash Chimera", "hp": 250.0, "damage": 28.0, "poise": 75.0, "speed": 3.0,
 		"tell": 0.2, "reach": 3.0, "color": Color("#7a6a5a"), "shape": "chimera",
