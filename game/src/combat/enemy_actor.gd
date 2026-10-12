@@ -188,6 +188,10 @@ func _think(delta: float) -> void:
 	if _target == null:
 		_wander(delta)
 		return
+	# Enemies use wind attacks occasionally
+	if randf() < 0.002:
+		var wind_damage = damage * 0.8
+		TargetActor.take_hit(wind_damage, self, 0.0, false, "wind")
 	# Enemies use holy attacks occasionally
 	if randf() < 0.002:
 		var holy_damage = damage * 1.1
