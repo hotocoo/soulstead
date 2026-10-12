@@ -146,6 +146,10 @@ const WEAPONS := {
 		"name": "Warhammer", "power": 22.0, "windup": 0.4, "active": 0.1, "recovery": 0.35,
 		"reach": 1.6, "arc": 0.7, "heavy_ratio": 1.5, "color": Color("#aaaaaa"), "shape": "warhammer",
 	},
+	"morning_star": {
+		"name": "Morning Star", "power": 16.0, "windup": 0.28, "active": 0.08, "recovery": 0.2,
+		"reach": 1.4, "arc": 0.5, "heavy_ratio": 1.3, "color": Color("#cccccc"), "shape": "morning_star",
+	},
 	"flail": {
 		"name": "Flail", "power": 16.0, "windup": 0.35, "active": 0.08, "recovery": 0.25,
 		"reach": 1.7, "arc": 0.7, "heavy_ratio": 1.4, "color": Color("#aaaaaa"), "shape": "flail",
